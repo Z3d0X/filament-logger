@@ -2,14 +2,13 @@
 
 namespace Z3d0X\FilamentLogger\Loggers;
 
-use Filament\Facades\Filament;
-use Illuminate\Auth\Events\Login;
 use Illuminate\Notifications\AnonymousNotifiable;
 use Illuminate\Notifications\Events\NotificationFailed;
 use Illuminate\Notifications\Events\NotificationSent;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Str;
 use Spatie\Activitylog\ActivityLogStatus;
+use Spatie\Activitylog\ActivityLogger;
 
 class NotificationLogger
 {
