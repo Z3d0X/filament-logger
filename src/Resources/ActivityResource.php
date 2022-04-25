@@ -103,13 +103,12 @@ class ActivityResource extends Resource
                     ->formatStateUsing(fn ($state) => ucwords($state))
                     ->sortable(),
 
-                TextColumn::make('causer.name')
-                    ->label('User'),
-
                 TextColumn::make('event')
                     ->sortable(),
                 
                 TextColumn::make('description')
+                    ->toggleable()
+                    ->toggledHiddenByDefault()
                     ->wrap(),
 
                 TextColumn::make('subject_type')
@@ -121,8 +120,8 @@ class ActivityResource extends Resource
                         return str($state)->afterLast('\\')->headline().' # '.$record->subject_id;
                     }),
 
-                // TextColumn::make('subject_id')
-                //     ->label('Subject ID'),
+                TextColumn::make('causer.name')
+                    ->label('User'),
                 
                 TextColumn::make('created_at')
                     ->label('Logged At')
