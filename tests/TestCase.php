@@ -3,6 +3,7 @@
 namespace Z3d0X\FilamentLogger\Tests;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Livewire\LivewireServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 use Z3d0X\FilamentLogger\FilamentLoggerServiceProvider;
 
@@ -21,6 +22,7 @@ class TestCase extends Orchestra
     {
         return [
             FilamentLoggerServiceProvider::class,
+            LivewireServiceProvider::class,
         ];
     }
 
