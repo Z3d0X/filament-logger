@@ -1,5 +1,7 @@
 <?php
 return [
+    'activity_resource' => \Z3d0X\FilamentLogger\Resources\ActivityResource::class,
+
     'resources' => [
         'enabled' => true,
         'log_name' => 'Resource',
@@ -9,7 +11,7 @@ return [
             //UserResource::class,
         ],
     ],
-    
+
     'access' => [
         'enabled' => true,
         'logger' => \Z3d0X\FilamentLogger\Loggers\AccessLogger::class,
