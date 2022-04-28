@@ -9,19 +9,20 @@ Configurable activity logger for filament.
 Powered by `spatie/laravel-activitylog`
 
 ## Features
-You can choose what you want to log.
+You can choose what you want to log and how to log it.
 - Log Resource(Model) Events
 - Log Login Event
 - Log Notification Events
-- Easily extendable to log custom model events
+- Easily extendable to log custom events
 ## Installation
+
+This package uses [spatie/laravel-activitylog](https://spatie.be/docs/laravel-activitylog), instructions for its setup can be found [here](https://spatie.be/docs/laravel-activitylog/v4/installation-and-setup)
 
 You can install the package via composer:
 
 ```bash
 composer require z3d0x/filament-logger
 ```
-
 You can publish the config file with:
 
 ```bash
@@ -33,6 +34,8 @@ This is the contents of the published config file:
 ```php
 <?php
 return [
+    'activity_resource' => \Z3d0X\FilamentLogger\Resources\ActivityResource::class,
+    
     'resources' => [
         'enabled' => true,
         'log_name' => 'Resource',
@@ -67,7 +70,7 @@ return [
 ```
 ## Future Scope
 - Log `spatie/laravel-settings`
-- Publishable `ActivityResource`
+- Log Models that aren't a FilamentResource
 
 ## Changelog
 
