@@ -167,7 +167,7 @@ class ActivityResource extends Resource
     {
         if (config('filament-logger.resources.enabled', true)) {
             $subjects = [];
-            $exceptResources = [...config('filament-logger.resources.exclude'), ActivityResource::class];
+            $exceptResources = [...config('filament-logger.resources.exclude'), config('filament-logger.activity_resource')];
             $removedExcludedResources = collect(Filament::getResources())->filter(function ($resource) use ($exceptResources) {
                 return ! in_array($resource, $exceptResources);
             });

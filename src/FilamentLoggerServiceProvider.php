@@ -4,16 +4,18 @@ namespace Z3d0X\FilamentLogger;
 
 use Filament\Facades\Filament;
 use Filament\PluginServiceProvider;
-use Z3d0X\FilamentLogger\Resources\ActivityResource;
 
 class FilamentLoggerServiceProvider extends PluginServiceProvider
 {
 
     public static string $name = 'filament-logger';
 
-    protected array $resources = [
-        ActivityResource::class,
-    ];
+    protected function getResources(): array
+    {
+        return [
+            config('filament-logger.activity_resource')
+        ];
+    }
 
     public function registeringPackage(): void
     {
@@ -25,7 +27,7 @@ class FilamentLoggerServiceProvider extends PluginServiceProvider
         parent::packageBooted();
 
         if (config('filament-logger.resources.enabled', true)) {
-            $exceptResources = [...config('filament-logger.resources.exclude'), ActivityResource::class];
+            $exceptResources = [...config('filament-logger.resources.exclude'), config('filament-logger.activity_resource')];
             $removedExcludedResources = collect(Filament::getResources())->filter(function ($resource) use ($exceptResources) {
                 return ! in_array($resource, $exceptResources);
             });
