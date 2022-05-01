@@ -8,7 +8,7 @@ return [
         'logger' => \Z3d0X\FilamentLogger\Loggers\ResourceLogger::class,
         'color' => 'success',
         'exclude' => [
-            //UserResource::class,
+            //App\Filament\Resources\UserResource::class,
         ],
     ],
 
@@ -26,9 +26,19 @@ return [
         'log_name' => 'Notification',
     ],
 
+    'models' => [
+        'enabled' => true,
+        'log_name' => 'Model',
+        'color' => 'warning',
+        'logger' => \Z3d0X\FilamentLogger\Loggers\ModelLogger::class,
+        'register' => [
+            //App\Models\User::class,
+        ],
+    ],
+
     'custom' => [
         // [
-        //     'name' => 'Custom',
+        //     'log_name' => 'Custom',
         //     'color' => 'primary',
         // ]
     ]

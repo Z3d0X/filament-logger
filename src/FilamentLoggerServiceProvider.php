@@ -33,7 +33,13 @@ class FilamentLoggerServiceProvider extends PluginServiceProvider
             });
 
             foreach ($removedExcludedResources as $resource) {
-                $models[] = $resource::getModel()::observe(config('filament-logger.resources.logger'));
+                $resource::getModel()::observe(config('filament-logger.resources.logger'));
+            }
+        }
+
+        if (config('filament-logger.models.enabled', true) && ! empty(config('filament-logger.models.register'))) {
+            foreach (config('filament-logger.models.register', []) as $model) {
+                $model::observe(config('filament-logger.models.logger'));
             }
         }
     }

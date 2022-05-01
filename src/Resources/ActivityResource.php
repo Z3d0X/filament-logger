@@ -186,12 +186,16 @@ class ActivityResource extends Resource
         
         foreach (config('filament-logger.custom') ?? [] as $custom)
         {
-            $customs[$custom['name']] = $custom['name'];
+            $customs[$custom['log_name']] = $custom['log_name'];
         }
 
         return array_merge(
             config('filament-logger.resources.enabled') ? [
                 config('filament-logger.resources.log_name') => config('filament-logger.resources.log_name'),
+            ] : [],
+
+            config('filament-logger.models.enabled') ? [
+                config('filament-logger.models.log_name') => config('filament-logger.models.log_name'),
             ] : [],
             
             config('filament-logger.access.enabled') 
@@ -213,13 +217,17 @@ class ActivityResource extends Resource
         {
             if (filled($custom['color'] ?? null))
             {
-                $customs[$custom['color']] = $custom['name'];
+                $customs[$custom['color']] = $custom['log_name'];
             }
         }
 
         return array_merge(
             (config('filament-logger.resources.enabled') && config('filament-logger.resources.color')) ? [
                 config('filament-logger.resources.color') => config('filament-logger.resources.log_name'),
+            ] : [],
+
+            (config('filament-logger.models.enabled') && config('filament-logger.models.color')) ? [
+                config('filament-logger.models.color') => config('filament-logger.models.log_name'),
             ] : [],
             
             (config('filament-logger.access.enabled') && config('filament-logger.access.color')) ? [
