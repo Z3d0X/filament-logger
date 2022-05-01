@@ -37,7 +37,7 @@ class NotificationLogger
             ->log($description);
     }
 
-    public function getRecipient(AnonymousNotifiable|Notifiable $notifiable, string $channel): string
+    public function getRecipient(mixed $notifiable, string $channel): string
     {
         return $notifiable->routeNotificationFor($channel);
     }

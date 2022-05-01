@@ -17,7 +17,7 @@ class FilamentLoggerEventServiceProvider extends ServiceProvider
                     config('filament-logger.access.logger'),
                 ],
             ] : [],
-            config('filament-logger.notification.enabled') ? [
+            config('filament-logger.notifications.enabled') ? [
                 NotificationSent::class => [
                     config('filament-logger.notifications.logger'),
                 ],
