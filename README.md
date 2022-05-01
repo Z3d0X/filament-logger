@@ -10,10 +10,13 @@ Powered by `spatie/laravel-activitylog`
 
 ## Features
 You can choose what you want to log and how to log it.
-- Log Resource(Model) Events
+- Log Filament Resource Events
 - Log Login Event
 - Log Notification Events
+- Log Model Events
 - Easily extendable to log custom events
+
+Note: By default this package will log Filament Resource Events, Access(Login) Events, and Notification Events. If you want to log a model that is not a FilamentResource you will have to manually register in the config file.
 ## Installation
 
 This package uses [spatie/laravel-activitylog](https://spatie.be/docs/laravel-activitylog), instructions for its setup can be found [here](https://spatie.be/docs/laravel-activitylog/v4/installation-and-setup)
@@ -35,17 +38,17 @@ This is the contents of the published config file:
 <?php
 return [
     'activity_resource' => \Z3d0X\FilamentLogger\Resources\ActivityResource::class,
-    
+
     'resources' => [
         'enabled' => true,
         'log_name' => 'Resource',
         'logger' => \Z3d0X\FilamentLogger\Loggers\ResourceLogger::class,
         'color' => 'success',
         'exclude' => [
-            //UserResource::class,
+            //App\Filament\Resources\UserResource::class,
         ],
     ],
-    
+
     'access' => [
         'enabled' => true,
         'logger' => \Z3d0X\FilamentLogger\Loggers\AccessLogger::class,
@@ -60,9 +63,19 @@ return [
         'log_name' => 'Notification',
     ],
 
+    'models' => [
+        'enabled' => true,
+        'log_name' => 'Model',
+        'color' => 'warning',
+        'logger' => \Z3d0X\FilamentLogger\Loggers\ModelLogger::class,
+        'register' => [
+            //App\Models\User::class,
+        ],
+    ],
+
     'custom' => [
         // [
-        //     'name' => 'Custom',
+        //     'log_name' => 'Custom',
         //     'color' => 'primary',
         // ]
     ]
@@ -70,7 +83,6 @@ return [
 ```
 ## Future Scope
 - Log `spatie/laravel-settings`
-- Log Models that aren't a FilamentResource
 
 ## Changelog
 
