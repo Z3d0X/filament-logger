@@ -117,7 +117,8 @@ class ActivityResource extends Resource
                         if (!$state) {
                             return '-';
                         }
-                        return str($state)->afterLast('\\')->headline().' # '.$record->subject_id;
+                        $state_parts = explode("\\", strval($state));
+                        return last($state_parts) . ' # ' . $record->subject_id;
                     }),
 
                 TextColumn::make('causer.name')
