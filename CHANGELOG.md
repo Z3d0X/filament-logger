@@ -2,6 +2,18 @@
 
 All notable changes to `filament-logger` will be documented in this file.
 
+## v0.2.1 - 2022-05-08
+
+## What's Changed
+
+- Fix: remove str() helper usage by @ngfw in https://github.com/Z3d0X/filament-logger/pull/6
+
+## New Contributors
+
+- @ngfw made their first contribution in https://github.com/Z3d0X/filament-logger/pull/6
+
+**Full Changelog**: https://github.com/Z3d0X/filament-logger/compare/v0.2.0...v0.2.1
+
 ## v0.2.0 - 2022-05-01
 
 ## What's Changed
