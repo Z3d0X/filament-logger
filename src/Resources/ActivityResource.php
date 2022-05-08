@@ -44,7 +44,7 @@ class ActivityResource extends Resource
                         TextInput::make('subject_type')
                             ->afterStateHydrated(
                                 fn ($component, ?Model $record, $state) => 
-                                $state ? $component->state(str($state)->afterLast('\\')->headline().' # '.$record->subject_id) : '-'
+                                $state ? $component->state(Str::of($state)->afterLast('\\')->headline().' # '.$record->subject_id) : '-'
                             )
                             ->label('Subject'),
 
@@ -117,8 +117,7 @@ class ActivityResource extends Resource
                         if (!$state) {
                             return '-';
                         }
-                        $state_parts = explode("\\", strval($state));
-                        return last($state_parts) . ' # ' . $record->subject_id;
+                        return Str::of($state)->afterLast('\\')->headline().' # '.$record->subject_id;
                     }),
 
                 TextColumn::make('causer.name')
