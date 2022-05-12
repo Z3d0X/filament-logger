@@ -1,8 +1,6 @@
 <?php
 return [
-    'activity_resource' => [
-        \Z3d0X\FilamentLogger\Resources\ActivityResource::class,
-    ],
+    'activity_resource' => \Z3d0X\FilamentLogger\Resources\ActivityResource::class,
 
     'resources' => [
         'enabled' => true,
