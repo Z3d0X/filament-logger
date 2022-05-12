@@ -1,6 +1,8 @@
 <?php
 return [
-    'activity_resource' => \Z3d0X\FilamentLogger\Resources\ActivityResource::class,
+    'activity_resource' => [
+        \Z3d0X\FilamentLogger\Resources\ActivityResource::class,
+    ],
 
     'resources' => [
         'enabled' => true,
@@ -41,5 +43,11 @@ return [
         //     'log_name' => 'Custom',
         //     'color' => 'primary',
         // ]
-    ]
+    ],
+
+    'nav' => [
+        'group' => 'Developer',
+        'icon' => 'heroicon-o-clipboard-list',
+        'label' => 'Activity Logsd',
+    ],
 ];

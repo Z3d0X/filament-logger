@@ -43,7 +43,7 @@ class ActivityResource extends Resource
 
                         TextInput::make('subject_type')
                             ->afterStateHydrated(
-                                fn ($component, ?Model $record, $state) => 
+                                fn ($component, ?Model $record, $state) =>
                                 $state ? $component->state(Str::of($state)->afterLast('\\')->headline().' # '.$record->subject_id) : '-'
                             )
                             ->label('Subject'),
@@ -150,7 +150,6 @@ class ActivityResource extends Resource
                                 $data['logged_at'],
                                 fn (Builder $query, $date): Builder => $query->whereDate('created_at', $date),
                             );
-                            
                     }),
             ]);
     }
@@ -175,7 +174,7 @@ class ActivityResource extends Resource
                 $model = $resource::getModel();
                 $subjects[$model] = Str::of(class_basename($model))->headline();
             }
-            return $subjects; 
+            return $subjects;
         }
         return [];
     }
@@ -184,8 +183,7 @@ class ActivityResource extends Resource
     {
         $customs = [];
         
-        foreach (config('filament-logger.custom') ?? [] as $custom)
-        {
+        foreach (config('filament-logger.custom') ?? [] as $custom) {
             $customs[$custom['log_name']] = $custom['log_name'];
         }
 
@@ -193,15 +191,12 @@ class ActivityResource extends Resource
             config('filament-logger.resources.enabled') ? [
                 config('filament-logger.resources.log_name') => config('filament-logger.resources.log_name'),
             ] : [],
-
             config('filament-logger.models.enabled') ? [
                 config('filament-logger.models.log_name') => config('filament-logger.models.log_name'),
             ] : [],
-            
-            config('filament-logger.access.enabled') 
+            config('filament-logger.access.enabled')
                 ? [config('filament-logger.access.log_name') => config('filament-logger.access.log_name')]
                 : [],
-
             config('filament-logger.notifications.enabled') ? [
                 config('filament-logger.notifications.log_name') => config('filament-logger.notifications.log_name'),
             ] : [],
@@ -213,10 +208,8 @@ class ActivityResource extends Resource
     {
         $customs = [];
         
-        foreach (config('filament-logger.custom') ?? [] as $custom)
-        {
-            if (filled($custom['color'] ?? null))
-            {
+        foreach (config('filament-logger.custom') ?? [] as $custom) {
+            if (filled($custom['color'] ?? null)) {
                 $customs[$custom['color']] = $custom['log_name'];
             }
         }
@@ -225,19 +218,36 @@ class ActivityResource extends Resource
             (config('filament-logger.resources.enabled') && config('filament-logger.resources.color')) ? [
                 config('filament-logger.resources.color') => config('filament-logger.resources.log_name'),
             ] : [],
-
             (config('filament-logger.models.enabled') && config('filament-logger.models.color')) ? [
                 config('filament-logger.models.color') => config('filament-logger.models.log_name'),
             ] : [],
-            
             (config('filament-logger.access.enabled') && config('filament-logger.access.color')) ? [
                 config('filament-logger.access.color') => config('filament-logger.access.log_name'),
             ] : [],
-
             (config('filament-logger.notifications.enabled') &&  config('filament-logger.notifications.color')) ? [
                 config('filament-logger.notifications.color') => config('filament-logger.notifications.log_name'),
             ] : [],
             $customs,
         );
+    }
+
+    protected static function getNavigationGroup(): ?string
+    {
+        return config('filament-logger.nav.group') ?? parent::getNavigationGroup();
+    }
+
+    public static function getLabel(): string
+    {
+        return config('filament-logger.nav.label')  ?? parent::getLabel();
+    }
+
+    protected static function getNavigationLabel(): string
+    {
+        return config('filament-logger.nav.label')  ?? parent::getNavigationLabel();
+    }
+
+    protected static function getNavigationIcon(): string
+    {
+        return config('filament-logger.nav.icon')  ?? parent::getNavigationIcon();
     }
 }
