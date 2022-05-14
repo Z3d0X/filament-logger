@@ -231,10 +231,9 @@ class ActivityResource extends Resource
         );
     }
 
-
     public static function getLabel(): string
     {
-        return __('filament-logger::filament-logger.resource.label.role');
+        return __('filament-logger::filament-logger.resource.label.log');
     }
 
     public static function getPluralLabel(): string
