@@ -231,23 +231,34 @@ class ActivityResource extends Resource
         );
     }
 
-    protected static function getNavigationGroup(): ?string
-    {
-        return config('filament-logger.nav.group') ?? parent::getNavigationGroup();
-    }
 
     public static function getLabel(): string
     {
-        return config('filament-logger.nav.label')  ?? parent::getLabel();
+        return __('filament-logger::filament-logger.resource.label.role');
+    }
+
+    public static function getPluralLabel(): string
+    {
+        return __('filament-logger::filament-logger.resource.label.logs');
+    }
+
+    protected static function getNavigationGroup(): ?string
+    {
+        return __('filament-logger::filament-logger.nav.group');
     }
 
     protected static function getNavigationLabel(): string
     {
-        return config('filament-logger.nav.label')  ?? parent::getNavigationLabel();
+        return __('filament-logger::filament-logger.nav.log.label');
     }
 
     protected static function getNavigationIcon(): string
     {
-        return config('filament-logger.nav.icon')  ?? parent::getNavigationIcon();
+        return __('filament-logger::filament-logger.nav.log.icon');
+    }
+
+    protected static function shouldRegisterNavigation(): bool
+    {
+        return auth()->user()->can('view_any_activity');
     }
 }

@@ -42,10 +42,4 @@ return [
         //     'color' => 'primary',
         // ]
     ],
-
-    'nav' => [
-        'group' => 'Developer',
-        'icon' => 'heroicon-o-clipboard-list',
-        'label' => 'Activity Logsd',
-    ],
 ];
