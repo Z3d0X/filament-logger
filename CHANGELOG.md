@@ -2,6 +2,18 @@
 
 All notable changes to `filament-logger` will be documented in this file.
 
+## v0.2.2 - 2022-05-19
+
+## What's Changed
+
+- Feature: Customizable Labels by @cntabana in https://github.com/Z3d0X/filament-logger/pull/7
+
+## New Contributors
+
+- @cntabana made their first contribution in https://github.com/Z3d0X/filament-logger/pull/7
+
+**Full Changelog**: https://github.com/Z3d0X/filament-logger/compare/v0.2.1...v0.2.2
+
 ## v0.2.1 - 2022-05-08
 
 ## What's Changed
