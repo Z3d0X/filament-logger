@@ -41,5 +41,5 @@ return [
         //     'log_name' => 'Custom',
         //     'color' => 'primary',
         // ]
-    ]
+    ],
 ];
