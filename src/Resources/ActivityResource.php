@@ -79,7 +79,7 @@ class ActivityResource extends Resource
                             ->label('Logged At')
                             ->content(
                                 fn (?Model $record): string => $record?->created_at
-                                    ? "{$record?->created_at->format('d/m/Y H:i')}"
+                                    ? "{$record?->created_at->setTimezone(DateTimePicker::make('fake')->getTimezone())->format('d/m/Y H:i')}"
                                     : '-'
                             ),
                     ])
