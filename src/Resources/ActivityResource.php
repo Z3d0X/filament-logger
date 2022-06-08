@@ -39,17 +39,17 @@ class ActivityResource extends Resource
                     Card::make([
                         TextInput::make('causer_id')
                             ->afterStateHydrated(fn ($component, ?Model $record) => $component->state($record->causer?->name))
-                            ->label('User'),
+                            ->label(__('User')),
 
                         TextInput::make('subject_type')
                             ->afterStateHydrated(
                                 fn ($component, ?Model $record, $state) =>
                                 $state ? $component->state(Str::of($state)->afterLast('\\')->headline().' # '.$record->subject_id) : '-'
                             )
-                            ->label('Subject'),
+                            ->label(__('Subject')),
 
                         Textarea::make('description')
-                            ->label('Description')
+                            ->label(__('Description'))
                             ->rows(2)
                             ->columnSpan(2),
                     ])
@@ -65,7 +65,7 @@ class ActivityResource extends Resource
                                     ? ucwords($record?->log_name)
                                     : '-'
                             )
-                            ->label('Type'),
+                            ->label(__('Type')),
 
                         Placeholder::make('event')
                             ->content(
@@ -73,10 +73,10 @@ class ActivityResource extends Resource
                                     ? ucwords($record?->event)
                                     : '-'
                             )
-                            ->label('Event'),
+                            ->label(__('Event')),
 
                         Placeholder::make('created_at')
-                            ->label('Logged At')
+                            ->label(__('Logged At'))
                             ->content(
                                 fn (?Model $record): string => $record?->created_at
                                     ? "{$record?->created_at->format('d/m/Y H:i')}"
@@ -86,7 +86,7 @@ class ActivityResource extends Resource
                 ]),
                 Card::make([
                     KeyValue::make('properties')
-                        ->label('Properties'),
+                        ->label(__('Properties')),
                 ])
                 ->visible(fn ($record) => $record->properties?->count() > 0)
             ])
@@ -99,20 +99,22 @@ class ActivityResource extends Resource
             ->columns([
                 BadgeColumn::make('log_name')
                     ->colors(static::getLogNameColors())
-                    ->label('Type')
+                    ->label(__('Type'))
                     ->formatStateUsing(fn ($state) => ucwords($state))
                     ->sortable(),
 
                 TextColumn::make('event')
+                    ->label(__('Event'))
                     ->sortable(),
                 
                 TextColumn::make('description')
                     ->toggleable()
+                    ->label(__('Description')),
                     ->toggledHiddenByDefault()
                     ->wrap(),
 
                 TextColumn::make('subject_type')
-                    ->label('Subject')
+                    ->label(__('Subject'))
                     ->formatStateUsing(function ($state, Model $record) {
                         if (!$state) {
                             return '-';
@@ -121,10 +123,10 @@ class ActivityResource extends Resource
                     }),
 
                 TextColumn::make('causer.name')
-                    ->label('User'),
+                    ->label(__('User')),
                 
                 TextColumn::make('created_at')
-                    ->label('Logged At')
+                    ->label(__('Logged At'))
                     ->dateTime('d/m/Y H:i:s')
                     ->sortable(),
             ])
@@ -132,16 +134,16 @@ class ActivityResource extends Resource
             ->bulkActions([])
             ->filters([
                 SelectFilter::make('log_name')
-                    ->label('Type')
+                    ->label(__('Type'))
                     ->options(static::getLogNameList()),
                 SelectFilter::make('subject_type')
-                    ->label('Subject Type')
+                    ->label(__('Subject Type'))
                     ->options(static::getSubjectTypeList()),
                 
                 Filter::make('created_at')
                     ->form([
                         DatePicker::make('logged_at')
-                            ->label('Logged At')
+                            ->label(__('Logged At'))
                             ->displayFormat('d/m/Y'),
                     ])
                     ->query(function (Builder $query, array $data): Builder {
