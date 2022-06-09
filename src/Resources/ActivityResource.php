@@ -255,4 +255,9 @@ class ActivityResource extends Resource
     {
         return __('filament-logger::filament-logger.nav.log.icon');
     }
+
+    protected static function shouldRegisterNavigation(): bool
+    {
+        return auth()->user()->can('view_view_log');
+    }
 }

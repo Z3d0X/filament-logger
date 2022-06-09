@@ -10,4 +10,9 @@ class ListActivities extends ListRecords
     {
         return config('filament-logger.activity_resource');
     }
+
+    public function mount(): void
+    {
+        abort_unless(auth()->user()->can('view_view_log'), 403);
+    }
 }
