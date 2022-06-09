@@ -13,6 +13,6 @@ class ListActivities extends ListRecords
 
     public function mount(): void
     {
-        abort_unless(auth()->user()->can('view_view_log'), 403);
+        abort_unless(auth()->user()->can('view_activity'), 403);
     }
 }
