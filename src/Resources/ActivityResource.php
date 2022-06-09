@@ -258,6 +258,6 @@ class ActivityResource extends Resource
 
     protected static function shouldRegisterNavigation(): bool
     {
-        return auth()->user()->can('view_view_log');
+        return auth()->user()->can('view_activity');
     }
 }
