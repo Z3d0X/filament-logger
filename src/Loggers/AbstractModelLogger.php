@@ -3,6 +3,8 @@
 namespace Z3d0X\FilamentLogger\Loggers;
 
 use Filament\Facades\Filament;
+use Illuminate\Auth\GenericUser;
+use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 use Spatie\Activitylog\ActivityLogger;
@@ -12,9 +14,9 @@ abstract class AbstractModelLogger
 {
     protected abstract function getLogName(): string;
 
-    protected function getUserName(?Model $user): string
+    protected function getUserName(?Authenticatable $user): string
     {
-        if(blank($user)) {
+        if(blank($user) || $user instanceof GenericUser) {
             return 'Anonymous';
         }
 
