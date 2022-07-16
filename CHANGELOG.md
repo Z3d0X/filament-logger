@@ -2,6 +2,20 @@
 
 All notable changes to `filament-logger` will be documented in this file.
 
+## v0.3.0 - 2022-07-16
+
+### What's Changed
+
+- Bump dependabot/fetch-metadata from 1.3.1 to 1.3.3 by @dependabot in https://github.com/Z3d0X/filament-logger/pull/12
+- Added keys for missing translation labels and Spanish translations by @pathros in https://github.com/Z3d0X/filament-logger/pull/13
+
+### New Contributors
+
+- @dependabot made their first contribution in https://github.com/Z3d0X/filament-logger/pull/12
+- @pathros made their first contribution in https://github.com/Z3d0X/filament-logger/pull/13
+
+**Full Changelog**: https://github.com/Z3d0X/filament-logger/compare/v0.2.3...v0.3.0
+
 ## v0.2.3 - 2022-06-16
 
 ### What's Changed
