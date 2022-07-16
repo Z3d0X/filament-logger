@@ -39,17 +39,17 @@ class ActivityResource extends Resource
                     Card::make([
                         TextInput::make('causer_id')
                             ->afterStateHydrated(fn ($component, ?Model $record) => $component->state($record->causer?->name))
-                            ->label('User'),
+                            ->label(__('filament-logger::filament-logger.resource.label.user')),
 
                         TextInput::make('subject_type')
                             ->afterStateHydrated(
                                 fn ($component, ?Model $record, $state) =>
                                 $state ? $component->state(Str::of($state)->afterLast('\\')->headline().' # '.$record->subject_id) : '-'
                             )
-                            ->label('Subject'),
+                            ->label(__('filament-logger::filament-logger.resource.label.subject')),
 
                         Textarea::make('description')
-                            ->label('Description')
+                            ->label(__('filament-logger::filament-logger.resource.label.description'))
                             ->rows(2)
                             ->columnSpan(2),
                     ])
@@ -65,7 +65,7 @@ class ActivityResource extends Resource
                                     ? ucwords($record?->log_name)
                                     : '-'
                             )
-                            ->label('Type'),
+                            ->label(__('filament-logger::filament-logger.resource.label.type')),
 
                         Placeholder::make('event')
                             ->content(
@@ -73,10 +73,10 @@ class ActivityResource extends Resource
                                     ? ucwords($record?->event)
                                     : '-'
                             )
-                            ->label('Event'),
+                            ->label(__('filament-logger::filament-logger.resource.label.event')),
 
                         Placeholder::make('created_at')
-                            ->label('Logged At')
+                            ->label(__('filament-logger::filament-logger.resource.label.event'))
                             ->content(
                                 fn (?Model $record): string => $record?->created_at
                                     ? "{$record?->created_at->format('d/m/Y H:i')}"
@@ -86,7 +86,7 @@ class ActivityResource extends Resource
                 ]),
                 Card::make([
                     KeyValue::make('properties')
-                        ->label('Properties'),
+                        ->label(__('filament-logger::filament-logger.resource.label.properties')),
                 ])
                 ->visible(fn ($record) => $record->properties?->count() > 0)
             ])
@@ -99,20 +99,22 @@ class ActivityResource extends Resource
             ->columns([
                 BadgeColumn::make('log_name')
                     ->colors(static::getLogNameColors())
-                    ->label('Type')
+                    ->label(__('filament-logger::filament-logger.resource.label.type'))
                     ->formatStateUsing(fn ($state) => ucwords($state))
                     ->sortable(),
 
-                TextColumn::make('event')
+	        TextColumn::make('event')
+	            ->label(__('filament-logger::filament-logger.resource.label.event'))
                     ->sortable(),
                 
                 TextColumn::make('description')
+		    ->label(__('filament-logger::filament-logger.resource.label.description'))
                     ->toggleable()
                     ->toggledHiddenByDefault()
                     ->wrap(),
 
                 TextColumn::make('subject_type')
-                    ->label('Subject')
+                    ->label(__('filament-logger::filament-logger.resource.label.subject'))
                     ->formatStateUsing(function ($state, Model $record) {
                         if (!$state) {
                             return '-';
@@ -121,10 +123,10 @@ class ActivityResource extends Resource
                     }),
 
                 TextColumn::make('causer.name')
-                    ->label('User'),
+                    ->label(__('filament-logger::filament-logger.resource.label.user')),
                 
                 TextColumn::make('created_at')
-                    ->label('Logged At')
+                    ->label(__('filament-logger::filament-logger.resource.label.logged_at'))
                     ->dateTime('d/m/Y H:i:s')
                     ->sortable(),
             ])
@@ -132,16 +134,16 @@ class ActivityResource extends Resource
             ->bulkActions([])
             ->filters([
                 SelectFilter::make('log_name')
-                    ->label('Type')
+                    ->label(__('filament-logger::filament-logger.resource.label.type'))
                     ->options(static::getLogNameList()),
                 SelectFilter::make('subject_type')
-                    ->label('Subject Type')
+                    ->label(__('filament-logger::filament-logger.resource.label.subject_type'))
                     ->options(static::getSubjectTypeList()),
                 
                 Filter::make('created_at')
                     ->form([
                         DatePicker::make('logged_at')
-                            ->label('Logged At')
+                            ->label(__('filament-logger::filament-logger.resource.label.logged_at'))
                             ->displayFormat('d/m/Y'),
                     ])
                     ->query(function (Builder $query, array $data): Builder {
