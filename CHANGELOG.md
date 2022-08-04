@@ -2,6 +2,18 @@
 
 All notable changes to `filament-logger` will be documented in this file.
 
+## v0.3.2 - 2022-08-04
+
+### What's Changed
+
+- Brazilian portuguse translation by @gapfranco in https://github.com/Z3d0X/filament-logger/pull/15
+
+### New Contributors
+
+- @gapfranco made their first contribution in https://github.com/Z3d0X/filament-logger/pull/15
+
+**Full Changelog**: https://github.com/Z3d0X/filament-logger/compare/v0.3.1...v0.3.2
+
 ## v0.3.1 - 2022-07-19
 
 ### What's Changed
