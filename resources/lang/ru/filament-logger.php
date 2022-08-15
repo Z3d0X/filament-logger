@@ -8,18 +8,17 @@ return [
     |--------------------------------------------------------------------------
     */
 
-    'nav.group' => 'Cài đặt',
-    'nav.log.label' => 'Nhật ký hoạt động',
+    'nav.group' => 'Настройки',
+    'nav.log.label' => 'Лог действий',
     'nav.log.icon' => 'heroicon-o-clipboard-list',
-    'resource.label.log' => 'Nhật ký hoạt động',
-    'resource.label.logs' => 'Nhật ký hoạt động',
-    'resource.label.user' => 'Người dùng',
-    'resource.label.subject' => 'Chủ đề',
-    'resource.label.subject_type' => 'Loại chủ đề',
-    'resource.label.description' => 'Mô tả',
-    'resource.label.type' => 'Kiểu',
-    'resource.label.event' => 'Sự kiện',
-    'resource.label.logged_at' => 'Lúc',
-    'resource.label.properties' => 'Thuộc tính',    
-
+    'resource.label.log' => 'Лога действий',
+    'resource.label.logs' => 'Журнал активности',
+    'resource.label.user' => 'Юзер',
+    'resource.label.subject' => 'Объект',
+    'resource.label.subject_type' => 'Тип объекта',
+    'resource.label.description' => 'Описание',
+    'resource.label.type' => 'Тип',
+    'resource.label.event' => 'Событие',
+    'resource.label.logged_at' => 'Время',
+    'resource.label.properties' => 'Свойства',
 ];
