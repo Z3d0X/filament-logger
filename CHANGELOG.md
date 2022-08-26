@@ -2,6 +2,19 @@
 
 All notable changes to `filament-logger` will be documented in this file.
 
+## v0.3.4 - 2022-08-26
+
+### What's Changed
+
+- ru & ukr translate by @HomaEEE in https://github.com/Z3d0X/filament-logger/pull/17
+- Fix: PHPStan & TestCase by @Z3d0X in https://github.com/Z3d0X/filament-logger/commit/0865a33c31c1735913390ef7b0d5f17c0017a000 & https://github.com/Z3d0X/filament-logger/commit/2ffd846b769b38944a23d307d77d792ba7454fe9
+
+### New Contributors
+
+- @HomaEEE made their first contribution in https://github.com/Z3d0X/filament-logger/pull/17
+
+**Full Changelog**: https://github.com/Z3d0X/filament-logger/compare/v0.3.3...v0.3.4
+
 ## v0.3.3 - 2022-08-13
 
 ### What's Changed
