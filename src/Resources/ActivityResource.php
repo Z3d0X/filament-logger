@@ -80,7 +80,7 @@ class ActivityResource extends Resource
                             ->label(__('filament-logger::filament-logger.resource.label.event'))
                             ->content(function (?Model $record): string {
                                 /** @var Activity $record */
-                                return $record->created_at ? "{$record->created_at->format('d/m/Y H:i')}" : '-';
+                                return $record->created_at ? "{$record->created_at->format(config('filament-logger.date_format', 'd/m/Y H:i:s'))}" : '-';
                             }),
                     ])
                 ]),
@@ -106,7 +106,7 @@ class ActivityResource extends Resource
             TextColumn::make('event')
                 ->label(__('filament-logger::filament-logger.resource.label.event'))
                     ->sortable(),
-                
+
                 TextColumn::make('description')
             ->label(__('filament-logger::filament-logger.resource.label.description'))
                     ->toggleable()
@@ -125,10 +125,10 @@ class ActivityResource extends Resource
 
                 TextColumn::make('causer.name')
                     ->label(__('filament-logger::filament-logger.resource.label.user')),
-                
+
                 TextColumn::make('created_at')
                     ->label(__('filament-logger::filament-logger.resource.label.logged_at'))
-                    ->dateTime('d/m/Y H:i:s')
+                    ->dateTime(config('filament-logger.date_format', 'd/m/Y H:i:s'))
                     ->sortable(),
             ])
             ->defaultSort('created_at', 'desc')
@@ -140,12 +140,12 @@ class ActivityResource extends Resource
                 SelectFilter::make('subject_type')
                     ->label(__('filament-logger::filament-logger.resource.label.subject_type'))
                     ->options(static::getSubjectTypeList()),
-                
+
                 Filter::make('created_at')
                     ->form([
                         DatePicker::make('logged_at')
                             ->label(__('filament-logger::filament-logger.resource.label.logged_at'))
-                            ->displayFormat('d/m/Y'),
+                            ->displayFormat(config('filament-logger.date_format_short', 'd/m/Y')),
                     ])
                     ->query(function (Builder $query, array $data): Builder {
                         return $query
@@ -185,7 +185,7 @@ class ActivityResource extends Resource
     protected static function getLogNameList(): array
     {
         $customs = [];
-        
+
         foreach (config('filament-logger.custom') ?? [] as $custom) {
             $customs[$custom['log_name']] = $custom['log_name'];
         }
@@ -210,7 +210,7 @@ class ActivityResource extends Resource
     protected static function getLogNameColors(): array
     {
         $customs = [];
-        
+
         foreach (config('filament-logger.custom') ?? [] as $custom) {
             if (filled($custom['color'] ?? null)) {
                 $customs[$custom['color']] = $custom['log_name'];
