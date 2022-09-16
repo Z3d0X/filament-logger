@@ -21,12 +21,17 @@ class NotificationLogger
     public function handle(NotificationSent|NotificationFailed $event)
     {
         $notification = class_basename($event->notification);
-        $receipent = $this->getRecipient($event->notifiable, $event->channel);
 
         if ($event instanceof NotificationSent) {
-            $description = $notification.' Notification sent to '.$receipent;
+            $description = $notification.' Notification sent';
         } else {
-            $description = $notification.' Notification failed to '.$receipent;
+            $description = $notification.' Notification failed';
+        }
+        
+        $receipent = $this->getRecipient($event->notifiable, $event->channel);
+        
+        if($receipent) {
+             $description .= ' to '.$receipent;
         }
 
         app(ActivityLogger::class)
@@ -37,8 +42,9 @@ class NotificationLogger
             ->log($description);
     }
 
-    public function getRecipient(mixed $notifiable, string $channel): string
+    public function getRecipient(mixed $notifiable, string $channel): ?string
     {
-        return $notifiable->routeNotificationFor($channel);
+        $notificationRoute = $notifiable->routeNotificationFor($channel);
+        return is_string($notificationRoute) ? $notificationRoute : null;
     }
 }
