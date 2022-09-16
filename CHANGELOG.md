@@ -2,6 +2,14 @@
 
 All notable changes to `filament-logger` will be documented in this file.
 
+## v0.3.5 - 2022-09-16
+
+### What's Changed
+
+- Fix: `NotificationLogger` getRecipient by @Z3d0X in https://github.com/Z3d0X/filament-logger/pull/20
+
+**Full Changelog**: https://github.com/Z3d0X/filament-logger/compare/v0.3.4...v0.3.5
+
 ## v0.3.4 - 2022-08-26
 
 ### What's Changed
