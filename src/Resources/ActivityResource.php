@@ -87,13 +87,17 @@ class ActivityResource extends Resource
                 Card::make([
    					KeyValue::make('properties')
 						->visible(fn ($livewire) => !isset($livewire->data['properties']['attributes']))
-						->label(__('filament-logger::filament-logger.resource.label.properties')),
+						->label(__('filament-logger::filament-logger.resource.label.properties'))
+                        ->columnSpan('full'),
+
 					KeyValue::make('properties.old')
 						->visible(fn ($livewire) => isset($livewire->data['properties']['old']))
 						->label(__('filament-logger::filament-logger.resource.label.old')),
+
 					KeyValue::make('properties.attributes')
 						->visible(fn ($livewire) => isset($livewire->data['properties']['attributes']))
 						->label(__('filament-logger::filament-logger.resource.label.new')),
+
                 ])->columns(2)->visible(fn ($record) => $record->properties?->count() > 0)
             ])
             ->columns(['sm' => 4, 'lg' => null]);
