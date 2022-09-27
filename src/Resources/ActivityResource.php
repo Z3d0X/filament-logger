@@ -85,7 +85,7 @@ class ActivityResource extends Resource
                     ])
                 ]),
                 Card::make([
-                    KeyValue::make('properties')
+                    KeyValue::make('properties.attributes')
                         ->label(__('filament-logger::filament-logger.resource.label.properties')),
                 ])
                 ->visible(fn ($record) => $record->properties?->count() > 0)
