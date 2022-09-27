@@ -80,7 +80,7 @@ class ActivityResource extends Resource
                             ->label(__('filament-logger::filament-logger.resource.label.event'))
                             ->content(function (?Model $record): string {
                                 /** @var Activity $record */
-                                return $record->created_at ? "{$record->created_at->format('d/m/Y H:i')}" : '-';
+                                return $record->created_at ? "{$record->created_at->format(config('filament-logger.datetime_format', 'd/m/Y H:i:s'))}" : '-';
                             }),
                     ])
                 ]),
@@ -138,7 +138,7 @@ class ActivityResource extends Resource
 
                 TextColumn::make('created_at')
                     ->label(__('filament-logger::filament-logger.resource.label.logged_at'))
-                    ->dateTime('d/m/Y H:i:s')
+                    ->dateTime(config('filament-logger.datetime_format', 'd/m/Y H:i:s'))
                     ->sortable(),
             ])
             ->defaultSort('created_at', 'desc')
@@ -192,7 +192,7 @@ class ActivityResource extends Resource
                     ->form([
                         DatePicker::make('logged_at')
                             ->label(__('filament-logger::filament-logger.resource.label.logged_at'))
-                            ->displayFormat('d/m/Y'),
+                            ->displayFormat(config('filament-logger.date_format', 'd/m/Y')),
                     ])
                     ->query(function (Builder $query, array $data): Builder {
                         return $query
