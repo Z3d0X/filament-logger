@@ -85,10 +85,16 @@ class ActivityResource extends Resource
                     ])
                 ]),
                 Card::make([
-                    KeyValue::make('properties.attributes')
-                        ->label(__('filament-logger::filament-logger.resource.label.properties')),
-                ])
-                ->visible(fn ($record) => $record->properties?->count() > 0)
+   					KeyValue::make('properties')
+						->visible(fn ($livewire) => !isset($livewire->data['properties']['attributes']))
+						->label(__('filament-logger::filament-logger.resource.label.properties')),
+					KeyValue::make('properties.old')
+						->visible(fn ($livewire) => isset($livewire->data['properties']['old']))
+						->label(__('filament-logger::filament-logger.resource.label.old')),
+					KeyValue::make('properties.attributes')
+						->visible(fn ($livewire) => isset($livewire->data['properties']['attributes']))
+						->label(__('filament-logger::filament-logger.resource.label.new')),
+                ])->columns(2)->visible(fn ($record) => $record->properties?->count() > 0)
             ])
             ->columns(['sm' => 4, 'lg' => null]);
     }
@@ -106,7 +112,7 @@ class ActivityResource extends Resource
             TextColumn::make('event')
                 ->label(__('filament-logger::filament-logger.resource.label.event'))
                     ->sortable(),
-                
+
                 TextColumn::make('description')
             ->label(__('filament-logger::filament-logger.resource.label.description'))
                     ->toggleable()
@@ -125,7 +131,7 @@ class ActivityResource extends Resource
 
                 TextColumn::make('causer.name')
                     ->label(__('filament-logger::filament-logger.resource.label.user')),
-                
+
                 TextColumn::make('created_at')
                     ->label(__('filament-logger::filament-logger.resource.label.logged_at'))
                     ->dateTime('d/m/Y H:i:s')
@@ -140,7 +146,44 @@ class ActivityResource extends Resource
                 SelectFilter::make('subject_type')
                     ->label(__('filament-logger::filament-logger.resource.label.subject_type'))
                     ->options(static::getSubjectTypeList()),
-                
+                				Filter::make('properties->old')
+					->label('Old Value')
+					->indicateUsing(function (array $data): ?string {
+						if (!$data['old']) {
+							return null;
+						}
+
+						return 'Old Attribute or Value: ' . $data['old'];
+					})
+					->form([
+						TextInput::make('old')->hint('Can be key or value'),
+					])
+					->query(function (Builder $query, array $data): Builder {
+						if (!$data['old']) {
+							return $query;
+						}
+
+						return $query->where('properties->old', 'like', "%{$data['old']}%");
+					}),
+				Filter::make('properties->attributes')
+					->label('New Value')
+					->indicateUsing(function (array $data): ?string {
+						if (!$data['new']) {
+							return null;
+						}
+
+						return 'New Attribute or Value: ' . $data['new'];
+					})
+					->form([
+						TextInput::make('new')->hint('Can be key or value'),
+					])
+					->query(function (Builder $query, array $data): Builder {
+						if (!$data['new']) {
+							return $query;
+						}
+
+						return $query->where('properties->attributes', 'like', "%{$data['new']}%");
+					}),
                 Filter::make('created_at')
                     ->form([
                         DatePicker::make('logged_at')
@@ -185,7 +228,7 @@ class ActivityResource extends Resource
     protected static function getLogNameList(): array
     {
         $customs = [];
-        
+
         foreach (config('filament-logger.custom') ?? [] as $custom) {
             $customs[$custom['log_name']] = $custom['log_name'];
         }
@@ -210,7 +253,7 @@ class ActivityResource extends Resource
     protected static function getLogNameColors(): array
     {
         $customs = [];
-        
+
         foreach (config('filament-logger.custom') ?? [] as $custom) {
             if (filled($custom['color'] ?? null)) {
                 $customs[$custom['color']] = $custom['log_name'];

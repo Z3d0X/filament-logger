@@ -20,6 +20,7 @@ return [
     'resource.label.type' => 'Type',
     'resource.label.event' => 'Event',
     'resource.label.logged_at' => 'Logged At',
-    'resource.label.properties' => 'Properties',    
-
+    'resource.label.properties' => 'Properties',
+    'resource.label.old' => 'Old',
+    'resource.label.new' => 'New',
 ];
