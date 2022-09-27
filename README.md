@@ -37,6 +37,9 @@ This is the contents of the published config file:
 ```php
 <?php
 return [
+    'datetime_format' => 'd/m/Y H:i:s',
+    'date_format' => 'd/m/Y',
+
     'activity_resource' => \Z3d0X\FilamentLogger\Resources\ActivityResource::class,
 
     'resources' => [
@@ -78,7 +81,7 @@ return [
         //     'log_name' => 'Custom',
         //     'color' => 'primary',
         // ]
-    ]
+    ],
 ];
 ```
 ## Future Scope
