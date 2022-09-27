@@ -2,6 +2,20 @@
 
 All notable changes to `filament-logger` will be documented in this file.
 
+## v0.4.0 - 2022-09-27
+
+### What's Changed
+
+- Make date formatting configurable by @cweagans in https://github.com/Z3d0X/filament-logger/pull/19
+- Proper display of Model Attributes diff by @thyseus in https://github.com/Z3d0X/filament-logger/pull/21
+
+### New Contributors
+
+- @cweagans made their first contribution in https://github.com/Z3d0X/filament-logger/pull/19
+- @thyseus made their first contribution in https://github.com/Z3d0X/filament-logger/pull/21
+
+**Full Changelog**: https://github.com/Z3d0X/filament-logger/compare/v0.3.5...v0.4.0
+
 ## v0.3.5 - 2022-09-16
 
 ### What's Changed
