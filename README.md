@@ -37,8 +37,8 @@ This is the contents of the published config file:
 ```php
 <?php
 return [
-    'date_format' => 'd/m/Y H:i:s',
-    'date_format_short' => 'd/m/Y',
+    'datetime_format' => 'd/m/Y H:i:s',
+    'date_format' => 'd/m/Y',
 
     'activity_resource' => \Z3d0X\FilamentLogger\Resources\ActivityResource::class,
 
