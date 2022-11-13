@@ -4,6 +4,8 @@ namespace Z3d0X\FilamentLogger;
 
 use Filament\Facades\Filament;
 use Filament\PluginServiceProvider;
+use Spatie\LaravelPackageTools\Commands\InstallCommand;
+use Spatie\LaravelPackageTools\Package;
 
 class FilamentLoggerServiceProvider extends PluginServiceProvider
 {
@@ -15,6 +17,22 @@ class FilamentLoggerServiceProvider extends PluginServiceProvider
         return [
             config('filament-logger.activity_resource')
         ];
+    }
+
+    public function packageConfigured(Package $package): void
+    {
+        $package
+            ->hasInstallCommand(function (InstallCommand $installCommand) {
+                $installCommand
+                    ->publishConfigFile()
+                    ->askToStarRepoOnGitHub('z3d0x/filament-logger')
+                    ->startWith(function (InstallCommand $installCommand) {
+                        $installCommand->call('vendor:publish', [
+                            '--provider' => "Spatie\Activitylog\ActivitylogServiceProvider",
+                            '--tag' => "activitylog-migrations"
+                        ]);
+                    });
+            });
     }
 
     public function registeringPackage(): void
