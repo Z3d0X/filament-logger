@@ -69,6 +69,7 @@ Please review [our security policy](../../security/policy) on how to report secu
 ## Credits
 
 - [Ziyaan Hassan](https://github.com/Z3d0X)
+- [Spatie Activitylog Contributors](https://github.com/spatie/laravel-activitylog#credits) 
 - [All Contributors](../../contributors)
 
 ## License
