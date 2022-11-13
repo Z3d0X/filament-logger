@@ -2,6 +2,16 @@
 
 All notable changes to `filament-logger` will be documented in this file.
 
+## v0.4.1 - 2022-11-13
+
+### What's Changed
+
+- Bump dependabot/fetch-metadata from 1.3.3 to 1.3.4 by @dependabot in https://github.com/Z3d0X/filament-logger/pull/22
+- Bump dependabot/fetch-metadata from 1.3.4 to 1.3.5 by @dependabot in https://github.com/Z3d0X/filament-logger/pull/25
+- Feature: Install Command by @Z3d0X in https://github.com/Z3d0X/filament-logger/pull/26
+
+**Full Changelog**: https://github.com/Z3d0X/filament-logger/compare/v0.4.0...v0.4.1
+
 ## v0.4.0 - 2022-09-27
 
 ### What's Changed
