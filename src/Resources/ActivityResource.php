@@ -31,6 +31,11 @@ class ActivityResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-clipboard-list';
 
+    public static function shouldRegisterNavigation(): bool
+    {
+        return  config('filament-logger.register_navigation');
+    }
+
     public static function form(Form $form): Form
     {
         return $form

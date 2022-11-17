@@ -5,6 +5,8 @@ return [
 
     'activity_resource' => \Z3d0X\FilamentLogger\Resources\ActivityResource::class,
 
+    'register_navigation' => true,
+
     'resources' => [
         'enabled' => true,
         'log_name' => 'Resource',
