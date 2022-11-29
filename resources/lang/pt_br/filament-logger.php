@@ -8,7 +8,7 @@ return [
     |--------------------------------------------------------------------------
     */
 
-    'nav.group' => 'Settings',
+    'nav.group' => 'Configurações',
     'nav.log.label' => 'Registro de atividade',
     'nav.log.icon' => 'heroicon-o-clipboard-list',
     'resource.label.log' => 'Registro de atividade',
