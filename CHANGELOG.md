@@ -2,6 +2,20 @@
 
 All notable changes to `filament-logger` will be documented in this file.
 
+## v0.4.2 - 2022-12-22
+
+### What's Changed
+
+- Bump ramsey/composer-install from 1 to 2 by @dependabot in https://github.com/Z3d0X/filament-logger/pull/29
+- Fix: `old` & `new` properties keys always displayed by @Z3d0X in https://github.com/Z3d0X/filament-logger/pull/33
+- fix: translate for Settings by @castellani8 in https://github.com/Z3d0X/filament-logger/pull/30
+
+### New Contributors
+
+- @castellani8 made their first contribution in https://github.com/Z3d0X/filament-logger/pull/30
+
+**Full Changelog**: https://github.com/Z3d0X/filament-logger/compare/v0.4.1...v0.4.2
+
 ## v0.4.1 - 2022-11-13
 
 ### What's Changed
