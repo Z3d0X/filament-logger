@@ -84,21 +84,34 @@ class ActivityResource extends Resource
                             }),
                     ])
                 ]),
-                Card::make([
-   					KeyValue::make('properties')
-						->visible(fn ($livewire) => !isset($livewire->data['properties']['attributes']))
-						->label(__('filament-logger::filament-logger.resource.label.properties'))
-                        ->columnSpan('full'),
+                Card::make()
+                    ->columns()
+                    ->visible(fn ($record) => $record->properties?->count() > 0)
+                    ->schema(function (?Activity $record) {
+                        $properties = $record->properties->except(['attributes', 'old']);
 
-					KeyValue::make('properties.old')
-						->visible(fn ($livewire) => isset($livewire->data['properties']['old']))
-						->label(__('filament-logger::filament-logger.resource.label.old')),
+                        $schema = [];
 
-					KeyValue::make('properties.attributes')
-						->visible(fn ($livewire) => isset($livewire->data['properties']['attributes']))
-						->label(__('filament-logger::filament-logger.resource.label.new')),
+                        if ($properties->count()) {
+                            $schema[] = KeyValue::make('properties')
+                                ->label(__('filament-logger::filament-logger.resource.label.properties'))
+                                ->columnSpan('full');
+                        }
 
-                ])->columns(2)->visible(fn ($record) => $record->properties?->count() > 0)
+                        if ($old = $record->properties->get('old')) {
+                            $schema[] = KeyValue::make('old')
+                                ->afterStateHydrated(fn (KeyValue $component) => $component->state($old))
+                                ->label(__('filament-logger::filament-logger.resource.label.old'));
+                        }
+
+                        if ($attributes = $record->properties->get('attributes')) {
+                            $schema[] = KeyValue::make('attributes')
+                                ->afterStateHydrated(fn (KeyValue $component) => $component->state($attributes))
+                                ->label(__('filament-logger::filament-logger.resource.label.new'));
+                        }
+
+                        return $schema;
+                    }),
             ])
             ->columns(['sm' => 4, 'lg' => null]);
     }
