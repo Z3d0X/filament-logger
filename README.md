@@ -1,9 +1,7 @@
 # Activity logger for filament
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/z3d0x/filament-logger.svg?style=flat-square)](https://packagist.org/packages/z3d0x/filament-logger)
-[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/z3d0x/filament-logger/run-tests?label=tests)](https://github.com/z3d0x/filament-logger/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/z3d0x/filament-logger/Check%20&%20fix%20styling?label=code%20style)](https://github.com/z3d0x/filament-logger/actions?query=workflow%3A"Check+%26+fix+styling"+branch%3Amain)
-[![Total Downloads](https://img.shields.io/packagist/dt/z3d0x/filament-logger.svg?style=flat-square)](https://packagist.org/packages/z3d0x/filament-logger)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/z3d0x/filament-logger.svg?style=for-the-badge)](https://packagist.org/packages/z3d0x/filament-logger)
+[![Total Downloads](https://img.shields.io/packagist/dt/z3d0x/filament-logger.svg?style=for-the-badge)](https://packagist.org/packages/z3d0x/filament-logger)
 
 Configurable activity logger for filament.
 Powered by `spatie/laravel-activitylog`
