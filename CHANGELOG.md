@@ -2,6 +2,15 @@
 
 All notable changes to `filament-logger` will be documented in this file.
 
+## v0.5.0 - 2023-02-15
+
+### What's Changed
+
+- Bump dependabot/fetch-metadata from 1.3.5 to 1.3.6 by @dependabot in https://github.com/Z3d0X/filament-logger/pull/34
+- Laravel 10 support by @Z3d0X in https://github.com/Z3d0X/filament-logger/pull/38
+
+**Full Changelog**: https://github.com/Z3d0X/filament-logger/compare/v0.4.2...v0.5.0
+
 ## v0.4.2 - 2022-12-22
 
 ### What's Changed
