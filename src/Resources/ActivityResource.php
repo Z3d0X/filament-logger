@@ -160,11 +160,13 @@ class ActivityResource extends Resource
                 SelectFilter::make('log_name')
                     ->label(__('filament-logger::filament-logger.resource.label.type'))
                     ->options(static::getLogNameList()),
+
                 SelectFilter::make('subject_type')
                     ->label(__('filament-logger::filament-logger.resource.label.subject_type'))
                     ->options(static::getSubjectTypeList()),
-                				Filter::make('properties->old')
-					->label('Old Value')
+
+                Filter::make('properties->old')
+					->label(__('filament-logger::filament-logger.resource.label.old_value'))
 					->indicateUsing(function (array $data): ?string {
 						if (!$data['old']) {
 							return null;
@@ -182,8 +184,9 @@ class ActivityResource extends Resource
 
 						return $query->where('properties->old', 'like', "%{$data['old']}%");
 					}),
+
 				Filter::make('properties->attributes')
-					->label('New Value')
+					->label(__('filament-logger::filament-logger.resource.label.new_value'))
 					->indicateUsing(function (array $data): ?string {
 						if (!$data['new']) {
 							return null;
@@ -201,6 +204,7 @@ class ActivityResource extends Resource
 
 						return $query->where('properties->attributes', 'like', "%{$data['new']}%");
 					}),
+
                 Filter::make('created_at')
                     ->form([
                         DatePicker::make('logged_at')
