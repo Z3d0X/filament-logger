@@ -2,6 +2,14 @@
 
 All notable changes to `filament-logger` will be documented in this file.
 
+## v0.5.1 - 2023-03-13
+
+### What's Changed
+
+- Fix: old/new value filter label translation by @Z3d0X in https://github.com/Z3d0X/filament-logger/pull/42
+
+**Full Changelog**: https://github.com/Z3d0X/filament-logger/compare/v0.5.0...v0.5.1
+
 ## v0.5.0 - 2023-02-15
 
 ### What's Changed
