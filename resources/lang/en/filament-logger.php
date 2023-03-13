@@ -23,4 +23,6 @@ return [
     'resource.label.properties' => 'Properties',
     'resource.label.old' => 'Old',
     'resource.label.new' => 'New',
+    'resource.label.old_value' => 'Old Value',
+    'resource.label.new_value' => 'New Value',
 ];
