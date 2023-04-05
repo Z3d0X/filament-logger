@@ -20,12 +20,12 @@ use Filament\Tables\Filters\SelectFilter;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
-use Spatie\Activitylog\Models\Activity;
+use Spatie\Activitylog\Contracts\Activity;
+use Spatie\Activitylog\ActivitylogServiceProvider;
 use Z3d0X\FilamentLogger\Resources\ActivityResource\Pages;
 
 class ActivityResource extends Resource
 {
-    protected static ?string $model = Activity::class;
     protected static ?string $label = 'Activity Log';
     protected static ?string $slug = 'activity-logs';
 
@@ -227,6 +227,11 @@ class ActivityResource extends Resource
             'index' => Pages\ListActivities::route('/'),
             'view' => Pages\ViewActivity::route('/{record}'),
         ];
+    }
+
+    public static function getModel(): string
+    {
+        return ActivitylogServiceProvider::determineActivityModel();
     }
 
     protected static function getSubjectTypeList(): array
