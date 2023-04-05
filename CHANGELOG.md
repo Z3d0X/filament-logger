@@ -2,6 +2,18 @@
 
 All notable changes to `filament-logger` will be documented in this file.
 
+## v0.5.2 - 2023-04-05
+
+### What's Changed
+
+- Automatic Activity Model resolution by @marcoguido in https://github.com/Z3d0X/filament-logger/pull/45
+
+### New Contributors
+
+- @marcoguido made their first contribution in https://github.com/Z3d0X/filament-logger/pull/45
+
+**Full Changelog**: https://github.com/Z3d0X/filament-logger/compare/v0.5.1...v0.5.2
+
 ## v0.5.1 - 2023-03-13
 
 ### What's Changed
