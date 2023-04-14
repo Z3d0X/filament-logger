@@ -120,6 +120,7 @@ class ActivityResource extends Resource
     {
         return $table
             ->columns([
+                TextColumn::make('id')->sortable(),
                 BadgeColumn::make('log_name')
                     ->colors(static::getLogNameColors())
                     ->label(__('filament-logger::filament-logger.resource.label.type'))
