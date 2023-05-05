@@ -171,7 +171,7 @@ class ActivityResource extends Resource
 							return null;
 						}
 
-						return 'Old Attribute or Value: ' . $data['old'];
+						return __('filament-logger::filament-logger.resource.label.old_attributes') . $data['old'];
 					})
 					->form([
 						TextInput::make('old')
@@ -192,7 +192,7 @@ class ActivityResource extends Resource
 							return null;
 						}
 
-						return 'New Attribute or Value: ' . $data['new'];
+						return __('filament-logger::filament-logger.resource.label.new_attributes') . $data['new'];
 					})
 					->form([
 						TextInput::make('new')
