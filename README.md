@@ -33,7 +33,7 @@ php artisan filament-logger:install
 This will publish the config & migrations from `spatie/laravel-activitylog`
 
 ## Authorization
-To enforce policies on `ActivityResource`,aafter generating a policy, you would need to register `Spatie\Activitylog\Models\Activity` to use that policy in the AuthServiceProvider.
+To enforce policies on `ActivityResource`, after generating a policy, you would need to register `Spatie\Activitylog\Models\Activity` to use that policy in the AuthServiceProvider.
 ```php
 <?php
  
