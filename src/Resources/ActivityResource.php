@@ -176,7 +176,7 @@ class ActivityResource extends Resource
 					->form([
 						TextInput::make('old')
                             ->label(__('filament-logger::filament-logger.resource.label.old'))
-                            ->hint(__('filament-logger::filament-logger.resource.label.hint')),
+                            ->hint(__('filament-logger::filament-logger.resource.label.properties_hint')),
 					])
 					->query(function (Builder $query, array $data): Builder {
 						if (!$data['old']) {
@@ -197,7 +197,7 @@ class ActivityResource extends Resource
 					->form([
 						TextInput::make('new')
                             ->label(__('filament-logger::filament-logger.resource.label.new'))
-                            ->hint(__('filament-logger::filament-logger.resource.label.hint')),
+                            ->hint(__('filament-logger::filament-logger.resource.label.properties_hint')),
 					])
 					->query(function (Builder $query, array $data): Builder {
 						if (!$data['new']) {

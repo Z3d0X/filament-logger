@@ -25,7 +25,7 @@ return [
     'resource.label.new' => 'New',
     'resource.label.old_value' => 'Old Value',
     'resource.label.new_value' => 'New Value',
-    'resource.label.hint' => 'Can be key or value',
+    'resource.label.properties_hint' => 'Can be key or value',
     'resource.label.old_attributes' => 'Old Attribute or Value: ',
     'resource.label.new_attributes' => 'New Attribute or Value: ',
 ];
