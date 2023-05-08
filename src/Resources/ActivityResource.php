@@ -166,16 +166,17 @@ class ActivityResource extends Resource
                     ->options(static::getSubjectTypeList()),
 
                 Filter::make('properties->old')
-					->label(__('filament-logger::filament-logger.resource.label.old_value'))
 					->indicateUsing(function (array $data): ?string {
 						if (!$data['old']) {
 							return null;
 						}
 
-						return 'Old Attribute or Value: ' . $data['old'];
+						return __('filament-logger::filament-logger.resource.label.old_attributes') . $data['old'];
 					})
 					->form([
-						TextInput::make('old')->hint('Can be key or value'),
+						TextInput::make('old')
+                            ->label(__('filament-logger::filament-logger.resource.label.old'))
+                            ->hint(__('filament-logger::filament-logger.resource.label.properties_hint')),
 					])
 					->query(function (Builder $query, array $data): Builder {
 						if (!$data['old']) {
@@ -186,16 +187,17 @@ class ActivityResource extends Resource
 					}),
 
 				Filter::make('properties->attributes')
-					->label(__('filament-logger::filament-logger.resource.label.new_value'))
 					->indicateUsing(function (array $data): ?string {
 						if (!$data['new']) {
 							return null;
 						}
 
-						return 'New Attribute or Value: ' . $data['new'];
+						return __('filament-logger::filament-logger.resource.label.new_attributes') . $data['new'];
 					})
 					->form([
-						TextInput::make('new')->hint('Can be key or value'),
+						TextInput::make('new')
+                            ->label(__('filament-logger::filament-logger.resource.label.new'))
+                            ->hint(__('filament-logger::filament-logger.resource.label.properties_hint')),
 					])
 					->query(function (Builder $query, array $data): Builder {
 						if (!$data['new']) {
