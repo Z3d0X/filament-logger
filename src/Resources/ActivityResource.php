@@ -30,6 +30,11 @@ class ActivityResource extends Resource
     protected static ?string $slug = 'activity-logs';
 
     protected static ?string $navigationIcon = 'heroicon-o-clipboard-list';
+    
+    public static function getNavigationSort(): int
+    {
+        return config('filament-logger.navigation_sort') ?? 1 ;
+    }
 
     public static function form(Form $form): Form
     {
