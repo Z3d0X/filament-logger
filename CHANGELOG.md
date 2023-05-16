@@ -2,6 +2,18 @@
 
 All notable changes to `filament-logger` will be documented in this file.
 
+## v0.5.3 - 2023-04-16
+
+### What's Changed
+
+- add tr language by @mnurullahsaglam in https://github.com/Z3d0X/filament-logger/pull/47
+
+### New Contributors
+
+- @mnurullahsaglam made their first contribution in https://github.com/Z3d0X/filament-logger/pull/47
+
+**Full Changelog**: https://github.com/Z3d0X/filament-logger/compare/v0.5.2...v0.5.3
+
 ## v0.5.2 - 2023-04-05
 
 ### What's Changed
