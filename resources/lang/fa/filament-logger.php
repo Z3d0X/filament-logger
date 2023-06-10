@@ -25,4 +25,7 @@ return [
     'resource.label.new' => 'جدید',
     'resource.label.old_value' => 'مقدار قدیمی',
     'resource.label.new_value' => 'مقدار جدید',
+    'resource.label.properties_hint' => 'می‌تواند کلید یا مقدار باشد',
+    'resource.label.old_attributes' => 'کلید یا مقدار قدیمی: ',
+    'resource.label.new_attributes' => 'کلید یا مقدار جدید: ',
 ];
