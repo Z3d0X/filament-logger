@@ -2,6 +2,29 @@
 
 All notable changes to `filament-logger` will be documented in this file.
 
+## v0.5.4 - 2023-06-10
+
+### What's Changed
+
+- Bump dependabot/fetch-metadata from 1.3.6 to 1.4.0 by @dependabot in https://github.com/Z3d0X/filament-logger/pull/49
+- add Persian language by @AmirAghaee in https://github.com/Z3d0X/filament-logger/pull/50
+- Fixes typo in README file. by @fsamapoor in https://github.com/Z3d0X/filament-logger/pull/53
+- Adds Arabic translations. by @fsamapoor in https://github.com/Z3d0X/filament-logger/pull/55
+- Adds localization improvements to the table filters. by @fsamapoor in https://github.com/Z3d0X/filament-logger/pull/54
+- Bump dependabot/fetch-metadata from 1.4.0 to 1.5.1 by @dependabot in https://github.com/Z3d0X/filament-logger/pull/62
+- Adds missing FA translations. by @fsamapoor in https://github.com/Z3d0X/filament-logger/pull/58
+- Georgian Translation by @ngfw in https://github.com/Z3d0X/filament-logger/pull/63
+- Adds Indonesian translation by @ruswan in https://github.com/Z3d0X/filament-logger/pull/60
+- fix: view activity mobile responsiveness by @Z3d0X in https://github.com/Z3d0X/filament-logger/pull/64
+
+### New Contributors
+
+- @AmirAghaee made their first contribution in https://github.com/Z3d0X/filament-logger/pull/50
+- @fsamapoor made their first contribution in https://github.com/Z3d0X/filament-logger/pull/53
+- @ruswan made their first contribution in https://github.com/Z3d0X/filament-logger/pull/60
+
+**Full Changelog**: https://github.com/Z3d0X/filament-logger/compare/v0.5.3...v0.5.4
+
 ## v0.5.3 - 2023-04-16
 
 ### What's Changed
