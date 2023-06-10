@@ -21,6 +21,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 use Spatie\Activitylog\Contracts\Activity;
+use Spatie\Activitylog\Models\Activity as ActivityModel;
 use Spatie\Activitylog\ActivitylogServiceProvider;
 use Z3d0X\FilamentLogger\Resources\ActivityResource\Pages;
 
@@ -46,7 +47,7 @@ class ActivityResource extends Resource
 
                         TextInput::make('subject_type')
                             ->afterStateHydrated(function ($component, ?Model $record, $state) {
-                                /** @var Activity $record */
+                                /** @var Activity&ActivityModel $record */
                                 return $state ? $component->state(Str::of($state)->afterLast('\\')->headline().' # '.$record->subject_id) : '-';
                             })
                             ->label(__('filament-logger::filament-logger.resource.label.subject')),
@@ -64,7 +65,7 @@ class ActivityResource extends Resource
                     Card::make([
                         Placeholder::make('log_name')
                             ->content(function (?Model $record): string {
-                                /** @var Activity $record */
+                                /** @var Activity&ActivityModel $record */
                                 return $record->log_name ? ucwords($record->log_name) : '-';
                             })
                             ->label(__('filament-logger::filament-logger.resource.label.type')),
@@ -79,7 +80,7 @@ class ActivityResource extends Resource
                         Placeholder::make('created_at')
                             ->label(__('filament-logger::filament-logger.resource.label.event'))
                             ->content(function (?Model $record): string {
-                                /** @var Activity $record */
+                                /** @var Activity&ActivityModel $record */
                                 return $record->created_at ? "{$record->created_at->format(config('filament-logger.datetime_format', 'd/m/Y H:i:s'))}" : '-';
                             }),
                     ])
@@ -87,7 +88,8 @@ class ActivityResource extends Resource
                 Card::make()
                     ->columns()
                     ->visible(fn ($record) => $record->properties?->count() > 0)
-                    ->schema(function (?Activity $record) {
+                    ->schema(function (?Model $record) {
+                        /** @var Activity&ActivityModel $record */
                         $properties = $record->properties->except(['attributes', 'old']);
 
                         $schema = [];
@@ -139,7 +141,7 @@ class ActivityResource extends Resource
                 TextColumn::make('subject_type')
                     ->label(__('filament-logger::filament-logger.resource.label.subject'))
                     ->formatStateUsing(function ($state, Model $record) {
-                        /** @var Activity $record */
+                        /** @var Activity&ActivityModel $record */
                         if (!$state) {
                             return '-';
                         }
