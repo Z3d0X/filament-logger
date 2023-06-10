@@ -54,7 +54,7 @@ class ActivityResource extends Resource
                         Textarea::make('description')
                             ->label(__('filament-logger::filament-logger.resource.label.description'))
                             ->rows(2)
-                            ->columnSpan(2),
+                            ->columnSpan('full'),
                     ])
                     ->columns(2),
                 ])
