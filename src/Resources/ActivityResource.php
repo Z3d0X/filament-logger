@@ -31,9 +31,9 @@ class ActivityResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-clipboard-list';
     
-    public static function getNavigationSort(): int
+    public static function getNavigationSort(): ?int
     {
-        return config('filament-logger.navigation_sort') ?? 1 ;
+        return config('filament-logger.navigation_sort') ?? null;
     }
 
     public static function form(Form $form): Form
@@ -125,7 +125,6 @@ class ActivityResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('id')->sortable(),
                 BadgeColumn::make('log_name')
                     ->colors(static::getLogNameColors())
                     ->label(__('filament-logger::filament-logger.resource.label.type'))
