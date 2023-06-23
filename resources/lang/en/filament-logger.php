@@ -28,4 +28,10 @@ return [
     'resource.label.properties_hint' => 'Can be key or value',
     'resource.label.old_attributes' => 'Old Attribute or Value: ',
     'resource.label.new_attributes' => 'New Attribute or Value: ',
+    'resource.label.created' => 'Created',
+    'resource.label.updated' => 'Updated',
+    'resource.label.deleted' => 'Deleted',
+    'resource.label.by' => 'By',
+    'resource.label.login' => "Login"
+
 ];

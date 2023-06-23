@@ -16,7 +16,7 @@ abstract class AbstractModelLogger
 
     protected function getUserName(?Authenticatable $user): string
     {
-        if(blank($user) || $user instanceof GenericUser) {
+        if (blank($user) || $user instanceof GenericUser) {
             return 'Anonymous';
         }
 
@@ -32,7 +32,7 @@ abstract class AbstractModelLogger
     protected function activityLogger(string $logName = null): ActivityLogger
     {
         $defaultLogName = $this->getLogName();
-        
+
         $logStatus = app(ActivityLogStatus::class);
 
         return app(ActivityLogger::class)
@@ -42,12 +42,12 @@ abstract class AbstractModelLogger
 
     protected function log(Model $model, string $event, ?string $description = null, mixed $attributes = null)
     {
-        if(is_null($description)) {
-            $description = $this->getModelName($model).' '.$event;
+        if (is_null($description)) {
+            $description = $this->getModelName($model) . ' ' . $event;
         }
 
         if (auth()->check()) {
-            $description .= ' by '.$this->getUserName(auth()->user());
+            $description .= ' ' . __('filament-logger::filament-logger.resource.label.by') . ' ' . $this->getUserName(auth()->user());
         }
 
         $this->activityLogger()
@@ -59,9 +59,9 @@ abstract class AbstractModelLogger
 
     public function created(Model $model)
     {
-        $this->log($model, 'Created', attributes:$model->getAttributes());
+        $this->log($model, __('filament-logger::filament-logger.resource.label.created'), attributes: $model->getAttributes());
     }
-    
+
     public function updated(Model $model)
     {
         $changes = $model->getChanges();
@@ -70,12 +70,12 @@ abstract class AbstractModelLogger
         if (count($changes) === 1 && array_key_exists('remember_token', $changes)) {
             return;
         }
-        
-        $this->log($model, 'Updated', attributes:$changes);
+
+        $this->log($model, __('filament-logger::filament-logger.resource.label.updated'), attributes: $changes);
     }
 
     public function deleted(Model $model)
     {
-        $this->log($model, 'Deleted');
+        $this->log($model, __('filament-logger::filament-logger.resource.label.deleted'));
     }
 }

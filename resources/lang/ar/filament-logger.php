@@ -25,4 +25,9 @@ return [
     'resource.label.new' => 'جديد',
     'resource.label.old_value' => 'قيمة قديمة',
     'resource.label.new_value' => 'قيمة جديدة',
+    'resource.label.created' => 'أنشاء',
+    'resource.label.updated' => 'عدل',
+    'resource.label.deleted' => 'حذف',
+    'resource.label.by' => 'بواسطة',
+    'resource.label.login' => "تسجيل الدخول"
 ];
