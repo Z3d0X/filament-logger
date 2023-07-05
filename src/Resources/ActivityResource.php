@@ -24,14 +24,22 @@ use Spatie\Activitylog\Contracts\Activity;
 use Spatie\Activitylog\Models\Activity as ActivityModel;
 use Spatie\Activitylog\ActivitylogServiceProvider;
 use Z3d0X\FilamentLogger\Resources\ActivityResource\Pages;
+use BezhanSalleh\FilamentShield\Contracts\HasShieldPermissions;
 
-class ActivityResource extends Resource
+class ActivityResource extends Resource implements HasShieldPermissions
 {
     protected static ?string $label = 'Activity Log';
     protected static ?string $slug = 'activity-logs';
 
     protected static ?string $navigationIcon = 'heroicon-o-clipboard-list';
-
+    
+    public static function getPermissionPrefixes(): array
+    {
+        return [
+            'view',
+            'view_any',
+        ];
+    }
     public static function form(Form $form): Form
     {
         return $form
