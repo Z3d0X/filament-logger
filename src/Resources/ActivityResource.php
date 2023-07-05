@@ -32,7 +32,7 @@ class ActivityResource extends Resource implements HasShieldPermissions
     protected static ?string $slug = 'activity-logs';
 
     protected static ?string $navigationIcon = 'heroicon-o-clipboard-list';
-    
+
     public static function getPermissionPrefixes(): array
     {
         return [
@@ -40,6 +40,7 @@ class ActivityResource extends Resource implements HasShieldPermissions
             'view_any',
         ];
     }
+
     public static function form(Form $form): Form
     {
         return $form
