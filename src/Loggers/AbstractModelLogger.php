@@ -32,12 +32,25 @@ abstract class AbstractModelLogger
     protected function activityLogger(string $logName = null): ActivityLogger
     {
         $defaultLogName = $this->getLogName();
-        
+
         $logStatus = app(ActivityLogStatus::class);
 
         return app(ActivityLogger::class)
             ->useLog($logName ?? $defaultLogName)
             ->setLogStatus($logStatus);
+    }
+
+    protected function getLoggableAttributes(Model $model, array $values = []): array
+    {
+        if (count($model->getVisible()) > 0) {
+            $values = array_intersect_key($values, array_flip($model->getVisible()));
+        }
+
+        if (count($model->getHidden()) > 0) {
+            $values = array_diff_key($values, array_flip($model->getHidden()));
+        }
+
+        return $values;
     }
 
     protected function log(Model $model, string $event, ?string $description = null, mixed $attributes = null)
@@ -53,7 +66,7 @@ abstract class AbstractModelLogger
         $this->activityLogger()
             ->event($event)
             ->performedOn($model)
-            ->withProperties($attributes)
+            ->withProperties($this->getLoggableAttributes($model, $attributes))
             ->log($description);
     }
 
@@ -61,7 +74,7 @@ abstract class AbstractModelLogger
     {
         $this->log($model, 'Created', attributes:$model->getAttributes());
     }
-    
+
     public function updated(Model $model)
     {
         $changes = $model->getChanges();
@@ -70,7 +83,7 @@ abstract class AbstractModelLogger
         if (count($changes) === 1 && array_key_exists('remember_token', $changes)) {
             return;
         }
-        
+
         $this->log($model, 'Updated', attributes:$changes);
     }
 
