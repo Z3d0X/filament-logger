@@ -2,6 +2,15 @@
 
 All notable changes to `filament-logger` will be documented in this file.
 
+## v0.5.5 - 2023-07-08
+
+### What's Changed
+
+- Bump dependabot/fetch-metadata from 1.5.1 to 1.6.0 by @dependabot in https://github.com/Z3d0X/filament-logger/pull/68
+- Fix: prevent hidden attributes from being logged by @Z3d0X in https://github.com/Z3d0X/filament-logger/pull/70
+
+**Full Changelog**: https://github.com/Z3d0X/filament-logger/compare/v0.5.4...v0.5.5
+
 ## v0.5.4 - 2023-06-10
 
 ### What's Changed
