@@ -40,8 +40,12 @@ abstract class AbstractModelLogger
             ->setLogStatus($logStatus);
     }
 
-    protected function getLoggableAttributes(Model $model, array $values = []): array
+    protected function getLoggableAttributes(Model $model, mixed $values = []): array
     {
+        if (! is_array($values)) {
+            return [];
+        }
+
         if (count($model->getVisible()) > 0) {
             $values = array_intersect_key($values, array_flip($model->getVisible()));
         }
