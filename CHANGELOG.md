@@ -2,6 +2,14 @@
 
 All notable changes to `filament-logger` will be documented in this file.
 
+## v0.5.6 - 2023-07-11
+
+### What's Changed
+
+- Fix #71  by @Z3d0X  in 4a3dda731c8a04429cb4d31b935ecbc68f9688e1
+
+**Full Changelog**: https://github.com/Z3d0X/filament-logger/compare/v0.5.5...v0.5.6
+
 ## v0.5.5 - 2023-07-08
 
 ### What's Changed
