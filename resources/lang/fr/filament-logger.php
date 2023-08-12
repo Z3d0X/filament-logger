@@ -10,7 +10,7 @@ return [
 
     'nav.group' => 'Paramètres',
     'nav.log.label' => 'Journal d\'activités',
-    'nav.log.icon' => 'heroicon-o-clipboard-list',
+    'nav.log.icon' => 'heroicon-o-clipboard-documents-list',
     'resource.label.log' => 'Journal d\'activité',
     'resource.label.logs' => 'Journal d\'activités',
     'resource.label.user' => 'Utilisateur',
@@ -20,6 +20,6 @@ return [
     'resource.label.type' => 'Type',
     'resource.label.event' => 'Événement',
     'resource.label.logged_at' => 'Enregistré à',
-    'resource.label.properties' => 'Propriétés',    
+    'resource.label.properties' => 'Propriétés',
 
 ];

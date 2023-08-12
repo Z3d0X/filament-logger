@@ -10,7 +10,7 @@ return [
 
     'nav.group' => 'تنظیمات',
     'nav.log.label' => 'لاگ فعالیت ها',
-  'nav.log.icon' => 'heroicon-o-clipboard-list',
+  'nav.log.icon' => 'heroicon-o-clipboard-documents-list',
     'resource.label.log' => 'لاگ فعالیت',
     'resource.label.logs' => 'لاگ فعالیت ها',
     'resource.label.user' => 'کاربر',

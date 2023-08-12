@@ -10,7 +10,7 @@ return [
 
     'nav.group' => 'Cài đặt',
     'nav.log.label' => 'Nhật ký hoạt động',
-    'nav.log.icon' => 'heroicon-o-clipboard-list',
+    'nav.log.icon' => 'heroicon-o-clipboard-documents-list',
     'resource.label.log' => 'Nhật ký hoạt động',
     'resource.label.logs' => 'Nhật ký hoạt động',
     'resource.label.user' => 'Người dùng',
@@ -20,6 +20,6 @@ return [
     'resource.label.type' => 'Kiểu',
     'resource.label.event' => 'Sự kiện',
     'resource.label.logged_at' => 'Lúc',
-    'resource.label.properties' => 'Thuộc tính',    
+    'resource.label.properties' => 'Thuộc tính',
 
 ];
