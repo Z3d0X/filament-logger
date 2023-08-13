@@ -3,6 +3,7 @@
 namespace Z3d0X\FilamentLogger;
 
 use Filament\Facades\Filament;
+use Filament\Panel;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 use Spatie\LaravelPackageTools\Commands\InstallCommand;
 use Spatie\LaravelPackageTools\Package;
@@ -47,11 +48,15 @@ class FilamentLoggerServiceProvider extends PackageServiceProvider
 
         if (config('filament-logger.resources.enabled', true)) {
             $exceptResources = [...config('filament-logger.resources.exclude'), config('filament-logger.activity_resource')];
-            $removedExcludedResources = collect(Filament::getResources())->filter(function ($resource) use ($exceptResources) {
-                return ! in_array($resource, $exceptResources);
-            });
 
-            foreach ($removedExcludedResources as $resource) {
+            $loggableResources = collect(Filament::getPanels())
+                ->flatMap(fn (Panel $panel) => $panel->getResources())
+                ->unique()
+                ->filter(function ($resource) use ($exceptResources) {
+                    return ! in_array($resource, $exceptResources);
+                });
+
+            foreach ($loggableResources as $resource) {
                 $resource::getModel()::observe(config('filament-logger.resources.logger'));
             }
         }
