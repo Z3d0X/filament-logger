@@ -3,13 +3,12 @@
 namespace Z3d0X\FilamentLogger;
 
 use Filament\Facades\Filament;
-use Filament\PluginServiceProvider;
+use Spatie\LaravelPackageTools\PackageServiceProvider;
 use Spatie\LaravelPackageTools\Commands\InstallCommand;
 use Spatie\LaravelPackageTools\Package;
 
-class FilamentLoggerServiceProvider extends PluginServiceProvider
+class FilamentLoggerServiceProvider extends PackageServiceProvider
 {
-
     public static string $name = 'filament-logger';
 
     protected function getResources(): array
@@ -19,9 +18,11 @@ class FilamentLoggerServiceProvider extends PluginServiceProvider
         ];
     }
 
-    public function packageConfigured(Package $package): void
+    public function configurePackage(Package $package): void
     {
-        $package
+        $package->name(static::$name)
+            ->hasTranslations()
+            ->hasConfigFile()
             ->hasInstallCommand(function (InstallCommand $installCommand) {
                 $installCommand
                     ->publishConfigFile()

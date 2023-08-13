@@ -2,27 +2,26 @@
 
 namespace Z3d0X\FilamentLogger\Resources;
 
+use Filament\Forms\Form;
+use Filament\Tables\Table;
+use Illuminate\Support\Str;
 use Filament\Facades\Filament;
-use Filament\Forms\Components\Card;
-use Filament\Forms\Components\DatePicker;
-use Filament\Forms\Components\Group;
-use Filament\Forms\Components\KeyValue;
-use Filament\Forms\Components\Placeholder;
-use Filament\Forms\Components\Textarea;
-use Filament\Forms\Components\TextInput;
-use Filament\Resources\Form;
 use Filament\Resources\Resource;
-use Filament\Resources\Table;
-use Filament\Tables\Columns\BadgeColumn;
-use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\Filter;
+use Filament\Forms\Components\Group;
+use Filament\Forms\Components\Section;
+use Filament\Forms\Components\KeyValue;
+use Filament\Forms\Components\Textarea;
+use Filament\Tables\Columns\TextColumn;
+use Illuminate\Database\Eloquent\Model;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\DatePicker;
 use Filament\Tables\Filters\SelectFilter;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Str;
+use Filament\Forms\Components\Placeholder;
 use Spatie\Activitylog\Contracts\Activity;
-use Spatie\Activitylog\Models\Activity as ActivityModel;
 use Spatie\Activitylog\ActivitylogServiceProvider;
+use Spatie\Activitylog\Models\Activity as ActivityModel;
 use Z3d0X\FilamentLogger\Resources\ActivityResource\Pages;
 
 class ActivityResource extends Resource
@@ -37,7 +36,7 @@ class ActivityResource extends Resource
         return $form
             ->schema([
                 Group::make([
-                    Card::make([
+                    Section::make([
                         TextInput::make('causer_id')
                             ->afterStateHydrated(function ($component, ?Model $record) {
                                 /** @phpstan-ignore-next-line */
@@ -62,7 +61,7 @@ class ActivityResource extends Resource
                 ->columnSpan(['sm' => 3]),
 
                 Group::make([
-                    Card::make([
+                    Section::make([
                         Placeholder::make('log_name')
                             ->content(function (?Model $record): string {
                                 /** @var Activity&ActivityModel $record */
@@ -85,7 +84,7 @@ class ActivityResource extends Resource
                             }),
                     ])
                 ]),
-                Card::make()
+                Section::make()
                     ->columns()
                     ->visible(fn ($record) => $record->properties?->count() > 0)
                     ->schema(function (?Model $record) {
@@ -122,7 +121,8 @@ class ActivityResource extends Resource
     {
         return $table
             ->columns([
-                BadgeColumn::make('log_name')
+                TextColumn::make('log_name')
+                    ->badge()
                     ->colors(static::getLogNameColors())
                     ->label(__('filament-logger::filament-logger.resource.label.type'))
                     ->formatStateUsing(fn ($state) => ucwords($state))
@@ -317,17 +317,17 @@ class ActivityResource extends Resource
         return __('filament-logger::filament-logger.resource.label.logs');
     }
 
-    protected static function getNavigationGroup(): ?string
+    public static function getNavigationGroup(): ?string
     {
         return __('filament-logger::filament-logger.nav.group');
     }
 
-    protected static function getNavigationLabel(): string
+    public static function getNavigationLabel(): string
     {
         return __('filament-logger::filament-logger.nav.log.label');
     }
 
-    protected static function getNavigationIcon(): string
+    public static function getNavigationIcon(): string
     {
         return __('filament-logger::filament-logger.nav.log.icon');
     }

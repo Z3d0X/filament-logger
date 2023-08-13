@@ -32,6 +32,16 @@ php artisan filament-logger:install
 ```
 This will publish the config & migrations from `spatie/laravel-activitylog`
 
+For Filament v3, you need to register a resource in PanelProvider
+```php
+public function panel(Panel $panel): Panel
+{
+    return $panel
+        ->resources([
+            config('filament-logger.activity_resource')
+        ]);
+}
+```
 ## Authorization
 To enforce policies on `ActivityResource`, after generating a policy, you would need to register `Spatie\Activitylog\Models\Activity` to use that policy in the AuthServiceProvider.
 ```php

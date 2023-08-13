@@ -10,7 +10,7 @@ return [
 
     'nav.group' => 'Ayarlar',
     'nav.log.label' => 'Aktivite Günlüğü',
-    'nav.log.icon' => 'heroicon-o-clipboard-list',
+    'nav.log.icon' => 'heroicon-o-clipboard-documents-list',
     'resource.label.log' => 'Aktivite Günlüğü',
     'resource.label.logs' => 'Aktivite Günlükleri',
     'resource.label.user' => 'Kullanıcı',
