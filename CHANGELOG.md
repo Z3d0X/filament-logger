@@ -2,6 +2,18 @@
 
 All notable changes to `filament-logger` will be documented in this file.
 
+## v0.6.0 - 2023-08-13
+
+### What's Changed
+
+- Filament v3 support by @thapaPrabhat in https://github.com/Z3d0X/filament-logger/pull/74
+
+### New Contributors
+
+- @thapaPrabhat made their first contribution in https://github.com/Z3d0X/filament-logger/pull/74
+
+**Full Changelog**: https://github.com/Z3d0X/filament-logger/compare/v0.5.6...v0.6.0
+
 ## v0.5.6 - 2023-07-11
 
 ### What's Changed
