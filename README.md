@@ -3,6 +3,10 @@
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/z3d0x/filament-logger.svg?style=for-the-badge)](https://packagist.org/packages/z3d0x/filament-logger)
 [![Total Downloads](https://img.shields.io/packagist/dt/z3d0x/filament-logger.svg?style=for-the-badge)](https://packagist.org/packages/z3d0x/filament-logger)
 
+<p align="center">
+  <img alt="logger banner" src="https://raw.githubusercontent.com/z3d0x/filament-logger/main/art/banner.jpeg" />
+</p>
+
 Configurable activity logger for filament.
 Powered by `spatie/laravel-activitylog`
 
@@ -73,8 +77,9 @@ class AuthServiceProvider extends ServiceProvider
 The main `Activity` class being used by the Filament Resource instance will be resolved by Spatie's service provider, which loads the model defined by the configuration key found at `activitylog.activity_model` in `config/activitylog.php`.
 
 ## Screenshots
-![filament-logger-index](https://user-images.githubusercontent.com/75579178/201537725-47361eb2-aa13-4493-a4d0-af0dde0f4eeb.png)
-![filament-logger-detail](https://user-images.githubusercontent.com/75579178/201537729-51b96eed-aa24-42ed-88f6-4683337f7d81.png)
+<img alt="logger-index" src="https://raw.githubusercontent.com/z3d0x/filament-logger/main/art/list-screenshot.png">
+<img alt="logger-detail-1" src="https://raw.githubusercontent.com/z3d0x/filament-logger/main/art/view-screenshot-1.png">
+<img alt="logger-detail-2" src="https://raw.githubusercontent.com/z3d0x/filament-logger/main/art/view-screenshot-2.png">
 
 
 ## Changelog
