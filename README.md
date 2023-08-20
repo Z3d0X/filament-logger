@@ -3,7 +3,7 @@
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/z3d0x/filament-logger.svg?style=for-the-badge)](https://packagist.org/packages/z3d0x/filament-logger)
 [![Total Downloads](https://img.shields.io/packagist/dt/z3d0x/filament-logger.svg?style=for-the-badge)](https://packagist.org/packages/z3d0x/filament-logger)
 
-<p align="center">
+<p align="center" class="filament-hidden">
   <img alt="logger banner" src="https://raw.githubusercontent.com/z3d0x/filament-logger/main/art/banner.jpeg" />
 </p>
 
