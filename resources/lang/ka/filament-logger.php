@@ -10,7 +10,7 @@ return [
 
     'nav.group' => 'პარამეტრები',
     'nav.log.label' => 'საქმიანობის ჟურნალი',
-    'nav.log.icon' => 'heroicon-o-clipboard-documents-list',
+    'nav.log.icon' => 'heroicon-o-clipboard-document-list',
     'resource.label.log' => 'საქმიანობის ჟურნალი',
     'resource.label.logs' => 'საქმიანობის ჟურნალი',
     'resource.label.user' => 'მომხმარებელი',
