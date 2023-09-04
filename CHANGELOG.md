@@ -2,6 +2,14 @@
 
 All notable changes to `filament-logger` will be documented in this file.
 
+## v0.6.1 - 2023-09-04
+
+### What's Changed
+
+- Fixed nav icon in locales by @Z3d0X  in https://github.com/Z3d0X/filament-logger/commit/fd1641ac4f86742be01beda8f10d8582adefc03c
+
+**Full Changelog**: https://github.com/Z3d0X/filament-logger/compare/v0.6.0...v0.6.1
+
 ## v0.6.0 - 2023-08-13
 
 ### What's Changed
