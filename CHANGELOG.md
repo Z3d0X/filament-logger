@@ -2,6 +2,20 @@
 
 All notable changes to `filament-logger` will be documented in this file.
 
+## v0.6.2 - 2023-11-29
+
+### What's Changed
+
+* Bump actions/checkout from 3 to 4 by @dependabot in https://github.com/Z3d0X/filament-logger/pull/79
+* Bump stefanzweifel/git-auto-commit-action from 4 to 5 by @dependabot in https://github.com/Z3d0X/filament-logger/pull/81
+* Fix language typo by @lakuapik in https://github.com/Z3d0X/filament-logger/pull/83
+
+### New Contributors
+
+* @lakuapik made their first contribution in https://github.com/Z3d0X/filament-logger/pull/83
+
+**Full Changelog**: https://github.com/Z3d0X/filament-logger/compare/v0.6.1...v0.6.2
+
 ## v0.6.1 - 2023-09-04
 
 ### What's Changed
