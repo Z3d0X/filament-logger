@@ -77,7 +77,7 @@ class ActivityResource extends Resource
                             ->label(__('filament-logger::filament-logger.resource.label.event')),
 
                         Placeholder::make('created_at')
-                            ->label(__('filament-logger::filament-logger.resource.label.event'))
+                            ->label(__('filament-logger::filament-logger.resource.label.logged_at'))
                             ->content(function (?Model $record): string {
                                 /** @var Activity&ActivityModel $record */
                                 return $record->created_at ? "{$record->created_at->format(config('filament-logger.datetime_format', 'd/m/Y H:i:s'))}" : '-';
