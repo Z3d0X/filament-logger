@@ -21,5 +21,4 @@ return [
     'resource.label.event' => 'Evento',
     'resource.label.logged_at' => 'Registrado em',
     'resource.label.properties' => 'Propriedades',
-
 ];
