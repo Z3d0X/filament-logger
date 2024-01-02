@@ -21,4 +21,6 @@ return [
     'resource.label.event' => 'Evento',
     'resource.label.logged_at' => 'Registrado em',
     'resource.label.properties' => 'Propriedades',
+    'resource.label.old_value' => 'Valor antigo',
+    'resource.label.new_value' => 'Novo valor',
 ];
