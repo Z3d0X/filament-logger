@@ -21,6 +21,11 @@ return [
     'resource.label.event' => 'Evento',
     'resource.label.logged_at' => 'Registrado em',
     'resource.label.properties' => 'Propriedades',
+    'resource.label.old' => 'Antigo',
+    'resource.label.new' => 'Novo',
     'resource.label.old_value' => 'Valor antigo',
     'resource.label.new_value' => 'Novo valor',
+    'resource.label.properties_hint' => 'Pode ser uma chave ou valor',
+    'resource.label.old_attributes' => 'Atributo ou Valor Antigo: ',
+    'resource.label.new_attributes' => 'Atributo ou Valor Novo: ',
 ];
