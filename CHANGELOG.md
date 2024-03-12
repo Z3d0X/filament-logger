@@ -2,6 +2,18 @@
 
 All notable changes to `filament-logger` will be documented in this file.
 
+## v0.7.0 - 2024-03-12
+
+### Laravel 11.x compatibility added
+
+#### What's Changed
+
+* Bump ramsey/composer-install from 2 to 3 by @dependabot in https://github.com/Z3d0X/filament-logger/pull/90
+* docs: missing translation for pt_BR by @marcosmarcolin in https://github.com/Z3d0X/filament-logger/pull/88
+* Laravel 11.x Compatibility by @laravel-shift in https://github.com/Z3d0X/filament-logger/pull/89
+
+**Full Changelog**: https://github.com/Z3d0X/filament-logger/compare/v0.6.3...v0.7.0
+
 ## v0.6.2 - 2023-11-29
 
 ### What's Changed
