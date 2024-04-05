@@ -19,7 +19,7 @@ return [
     'resource.label.description' => 'Beschrijving',
     'resource.label.type' => 'Type',
     'resource.label.event' => 'Gebeurtenis',
-    'resource.label.logged_at' => 'Gelogt op',
+    'resource.label.logged_at' => 'Gelogd op',
     'resource.label.properties' => 'Eigenschappen',
     'resource.label.old' => 'Oud',
     'resource.label.new' => 'Nieuw',
