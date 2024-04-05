@@ -26,6 +26,6 @@ return [
     'resource.label.old_value' => 'Oude waarde',
     'resource.label.new_value' => 'Nieuwe waarde',
     'resource.label.properties_hint' => 'Kan sleutel of waarde zijn',
-    'resource.label.old_attributes' => 'Oud attribuut of waarde: ',
-    'resource.label.new_attributes' => 'Nieuw attribuut of waarde: ',
+    'resource.label.old_attributes' => 'Oude attribuut of waarde: ',
+    'resource.label.new_attributes' => 'Nieuwe attribuut of waarde: ',
 ];
