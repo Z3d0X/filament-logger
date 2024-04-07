@@ -2,6 +2,21 @@
 
 All notable changes to `filament-logger` will be documented in this file.
 
+## v0.7.1 - 2024-04-07
+
+### What's Changed
+
+* Bump dependabot/fetch-metadata from 1.6.0 to 2.0.0 by @dependabot in https://github.com/Z3d0X/filament-logger/pull/94
+* [lang] Add Dutch translations by @Daniel-H123 in https://github.com/Z3d0X/filament-logger/pull/96
+* Korean translations add by @corean in https://github.com/Z3d0X/filament-logger/pull/95
+
+### New Contributors
+
+* @Daniel-H123 made their first contribution in https://github.com/Z3d0X/filament-logger/pull/96
+* @corean made their first contribution in https://github.com/Z3d0X/filament-logger/pull/95
+
+**Full Changelog**: https://github.com/Z3d0X/filament-logger/compare/v0.7.0...v0.7.1
+
 ## v0.7.0 - 2024-03-12
 
 ### Laravel 11.x compatibility added
