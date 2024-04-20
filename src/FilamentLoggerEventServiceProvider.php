@@ -28,4 +28,14 @@ class FilamentLoggerEventServiceProvider extends ServiceProvider
         );
         return $listen;
     }
+
+    /**
+     * Determine if events and listeners should be automatically discovered.
+     *
+     * @return bool
+     */
+    public function shouldDiscoverEvents()
+    {
+        return get_class($this) === __CLASS__ && static::$shouldDiscoverEvents === true;
+    }
 }
