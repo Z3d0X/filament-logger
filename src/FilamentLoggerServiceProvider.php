@@ -49,7 +49,7 @@ class FilamentLoggerServiceProvider extends PackageServiceProvider
                 ->flatMap(fn (Panel $panel) => $panel->getResources())
                 ->unique()
                 ->filter(function ($resource) use ($exceptResources) {
-                    return !in_array($resource, $exceptResources);
+                    return ! in_array($resource, $exceptResources);
                 });
 
             foreach ($loggableResources as $resource) {
@@ -57,7 +57,7 @@ class FilamentLoggerServiceProvider extends PackageServiceProvider
             }
         }
 
-        if (config('filament-logger.models.enabled', true) && !empty(config('filament-logger.models.register'))) {
+        if (config('filament-logger.models.enabled', true) && ! empty(config('filament-logger.models.register'))) {
             foreach (config('filament-logger.models.register', []) as $model) {
                 $model::observe(config('filament-logger.models.logger'));
             }
