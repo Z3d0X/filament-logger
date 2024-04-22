@@ -10,7 +10,6 @@ return [
 
     'nav.group' => 'Налаштування',
     'nav.log.label' => 'Лог дій',
-    'nav.log.icon' => 'heroicon-o-clipboard-document-list',
     'resource.label.log' => 'Лога дій',
     'resource.label.logs' => 'Журнал активності',
     'resource.label.user' => 'Юзер',
