@@ -29,7 +29,7 @@ class ActivityResource extends Resource
     protected static ?string $label = 'Activity Log';
     protected static ?string $slug = 'activity-logs';
 
-    protected static ?string $navigationIcon = 'heroicon-o-clipboard-list';
+    protected static ?string $navigationIcon = 'heroicon-o-clipboard-document-list';
 
     public static function form(Form $form): Form
     {
@@ -317,18 +317,8 @@ class ActivityResource extends Resource
         return __('filament-logger::filament-logger.resource.label.logs');
     }
 
-    public static function getNavigationGroup(): ?string
-    {
-        return __('filament-logger::filament-logger.nav.group');
-    }
-
     public static function getNavigationLabel(): string
     {
         return __('filament-logger::filament-logger.nav.log.label');
-    }
-
-    public static function getNavigationIcon(): string
-    {
-        return __('filament-logger::filament-logger.nav.log.icon');
     }
 }
