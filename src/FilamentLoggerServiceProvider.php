@@ -4,6 +4,7 @@ namespace Z3d0X\FilamentLogger;
 
 use Filament\Facades\Filament;
 use Filament\Panel;
+use Illuminate\Support\Facades\Event;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 use Spatie\LaravelPackageTools\Commands\InstallCommand;
 use Spatie\LaravelPackageTools\Package;
@@ -37,11 +38,6 @@ class FilamentLoggerServiceProvider extends PackageServiceProvider
             });
     }
 
-    public function registeringPackage(): void
-    {
-        $this->app->register(FilamentLoggerEventServiceProvider::class);
-    }
-
     public function packageBooted(): void
     {
         parent::packageBooted();
@@ -53,7 +49,7 @@ class FilamentLoggerServiceProvider extends PackageServiceProvider
                 ->flatMap(fn (Panel $panel) => $panel->getResources())
                 ->unique()
                 ->filter(function ($resource) use ($exceptResources) {
-                    return ! in_array($resource, $exceptResources);
+                    return !in_array($resource, $exceptResources);
                 });
 
             foreach ($loggableResources as $resource) {
@@ -61,10 +57,18 @@ class FilamentLoggerServiceProvider extends PackageServiceProvider
             }
         }
 
-        if (config('filament-logger.models.enabled', true) && ! empty(config('filament-logger.models.register'))) {
+        if (config('filament-logger.models.enabled', true) && !empty(config('filament-logger.models.register'))) {
             foreach (config('filament-logger.models.register', []) as $model) {
                 $model::observe(config('filament-logger.models.logger'));
             }
+        }
+
+        if (config('filament-logger.access.enabled')) {
+            Event::listen(config('filament-logger.access.logger'));
+        }
+
+        if (config('filament-logger.notifications.enabled')) {
+            Event::listen(config('filament-logger.notifications.logger'));
         }
     }
 }
