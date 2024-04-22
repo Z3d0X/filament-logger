@@ -22,6 +22,7 @@ use Filament\Forms\Components\Placeholder;
 use Spatie\Activitylog\Contracts\Activity;
 use Spatie\Activitylog\ActivitylogServiceProvider;
 use Spatie\Activitylog\Models\Activity as ActivityModel;
+use Z3d0X\FilamentLogger\LoggerPlugin;
 use Z3d0X\FilamentLogger\Resources\ActivityResource\Pages;
 
 class ActivityResource extends Resource
@@ -45,10 +46,7 @@ class ActivityResource extends Resource
                             ->label(__('filament-logger::filament-logger.resource.label.user')),
 
                         TextInput::make('subject_type')
-                            ->afterStateHydrated(function ($component, ?Model $record, $state) {
-                                /** @var Activity&ActivityModel $record */
-                                return $state ? $component->state(Str::of($state)->afterLast('\\')->headline().' # '.$record->subject_id) : '-';
-                            })
+                            ->formatStateUsing(LoggerPlugin::get()->getResolveSubjectNameUsing())
                             ->label(__('filament-logger::filament-logger.resource.label.subject')),
 
                         Textarea::make('description')
@@ -140,13 +138,7 @@ class ActivityResource extends Resource
 
                 TextColumn::make('subject_type')
                     ->label(__('filament-logger::filament-logger.resource.label.subject'))
-                    ->formatStateUsing(function ($state, Model $record) {
-                        /** @var Activity&ActivityModel $record */
-                        if (!$state) {
-                            return '-';
-                        }
-                        return Str::of($state)->afterLast('\\')->headline().' # '.$record->subject_id;
-                    }),
+                    ->formatStateUsing(LoggerPlugin::get()->getResolveSubjectNameUsing()),
 
                 TextColumn::make('causer.name')
                     ->label(__('filament-logger::filament-logger.resource.label.user')),

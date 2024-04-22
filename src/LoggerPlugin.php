@@ -2,12 +2,18 @@
 
 namespace Z3d0X\FilamentLogger;
 
+use Closure;
 use Filament\Contracts\Plugin;
 use Filament\Panel;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
+use Spatie\Activitylog\Models\Activity;
 
 class LoggerPlugin implements Plugin
 {
     const ID = 'z3d0x::filament-logger';
+
+    protected ?Closure $resolveSubjectNameUsing = null;
 
     public static function make(): static
     {
@@ -19,9 +25,12 @@ class LoggerPlugin implements Plugin
         return static::ID;
     }
 
-    public function boot(Panel $panel): void
+    public static function get(): static
     {
+        /** @var static $plugin */
+        $plugin = filament(app(static::class)->getId());
 
+        return $plugin;
     }
 
     public function register(Panel $panel): void
@@ -29,6 +38,16 @@ class LoggerPlugin implements Plugin
         $panel->resources(array_filter([
             config('filament-logger.activity_resource')
         ]));
+    }
+
+    public function boot(Panel $panel): void
+    {
+
+    }
+
+    public static function getActivityResourceClass(): string
+    {
+        return config('filament-logger.activity_resource');
     }
 
     public function navigationGroup(?string $navigationGroup): static
@@ -52,16 +71,27 @@ class LoggerPlugin implements Plugin
         return $this;
     }
 
-    public static function getActivityResourceClass(): string
+    public function resolveSubjectNameUsing(?Closure $callback): static
     {
-        return config('filament-logger.activity_resource');
+        $this->resolveSubjectNameUsing = $callback;
+
+        return $this;
     }
 
-    public static function get(): static
+    public function getResolveSubjectNameUsing(): ?Closure
     {
-        /** @var static $plugin */
-        $plugin = filament(app(static::class)->getId());
+        if (! is_null($this->resolveSubjectNameUsing)) {
+            return $this->resolveSubjectNameUsing;
+        };
 
-        return $plugin;
+        return static function ($state, Model $record) {
+            /** @var Activity $record */
+            if (!$state) {
+
+                return '-';
+            }
+
+            return Str::of($state)->afterLast('\\')->headline().' # '.$record->subject_id;
+        };
     }
 }
