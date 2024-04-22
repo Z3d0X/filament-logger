@@ -4,9 +4,13 @@ namespace Z3d0X\FilamentLogger;
 
 use Filament\Facades\Filament;
 use Filament\Panel;
-use Spatie\LaravelPackageTools\PackageServiceProvider;
+use Illuminate\Auth\Events\Login;
+use Illuminate\Notifications\Events\NotificationFailed;
+use Illuminate\Notifications\Events\NotificationSent;
+use Illuminate\Support\Facades\Event;
 use Spatie\LaravelPackageTools\Commands\InstallCommand;
 use Spatie\LaravelPackageTools\Package;
+use Spatie\LaravelPackageTools\PackageServiceProvider;
 
 class FilamentLoggerServiceProvider extends PackageServiceProvider
 {
@@ -37,9 +41,18 @@ class FilamentLoggerServiceProvider extends PackageServiceProvider
             });
     }
 
-    public function registeringPackage(): void
+    public function bootingPackage(): void
     {
-        $this->app->register(FilamentLoggerEventServiceProvider::class);
+        parent::bootingPackage();
+
+        if (config('filament-logger.access.enabled')) {
+            Event::listen(Login::class, config('filament-logger.access.logger'));
+        }
+
+        if (config('filament-logger.notifications.enabled')) {
+            Event::listen(NotificationSent::class, config('filament-logger.notifications.logger'));
+            Event::listen(NotificationFailed::class, config('filament-logger.notifications.logger'));
+        }
     }
 
     public function packageBooted(): void
