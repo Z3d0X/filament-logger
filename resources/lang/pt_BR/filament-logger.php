@@ -11,6 +11,7 @@ return [
     'nav.group' => 'Configurações',
     'nav.log.label' => 'Registro de atividade',
     'nav.log.icon' => 'heroicon-o-clipboard-document-list',
+    'nav.sort' => null,
     'resource.label.log' => 'Registro de atividade',
     'resource.label.logs' => 'Registros de atividade',
     'resource.label.user' => 'Usuário',

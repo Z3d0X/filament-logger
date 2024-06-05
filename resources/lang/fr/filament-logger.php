@@ -11,6 +11,7 @@ return [
     'nav.group' => 'Paramètres',
     'nav.log.label' => 'Journal d\'activités',
     'nav.log.icon' => 'heroicon-o-clipboard-document-list',
+    'nav.sort' => null,
     'resource.label.log' => 'Journal d\'activité',
     'resource.label.logs' => 'Journal d\'activités',
     'resource.label.user' => 'Utilisateur',

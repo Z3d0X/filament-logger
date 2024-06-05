@@ -11,6 +11,7 @@ return [
     'nav.group' => 'Pengaturan',
     'nav.log.label' => 'Catatan Aktivitas',
     'nav.log.icon' => 'heroicon-o-clipboard-document-list',
+    'nav.sort' => null,
     'resource.label.log' => 'Catatan aktivitas',
     'resource.label.logs' => 'Catatan aktivitas',
     'resource.label.user' => 'Pengguna',

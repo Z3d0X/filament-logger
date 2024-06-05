@@ -11,6 +11,7 @@ return [
     'nav.group' => '설정',
     'nav.log.label' => '활동 로그',
     'nav.log.icon' => 'heroicon-o-clipboard-document-list',
+    'nav.sort' => null,
     'resource.label.log' => '활동 로그',
     'resource.label.logs' => '활동 로그',
     'resource.label.user' => '사용자',

@@ -11,6 +11,7 @@ return [
     'nav.group' => 'Cài đặt',
     'nav.log.label' => 'Nhật ký hoạt động',
     'nav.log.icon' => 'heroicon-o-clipboard-document-list',
+    'nav.sort' => null,
     'resource.label.log' => 'Nhật ký hoạt động',
     'resource.label.logs' => 'Nhật ký hoạt động',
     'resource.label.user' => 'Người dùng',

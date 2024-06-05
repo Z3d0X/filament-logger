@@ -11,6 +11,7 @@ return [
     'nav.group' => 'Настройки',
     'nav.log.label' => 'Лог действий',
     'nav.log.icon' => 'heroicon-o-clipboard-document-list',
+    'nav.sort' => null,
     'resource.label.log' => 'Лога действий',
     'resource.label.logs' => 'Журнал активности',
     'resource.label.user' => 'Юзер',

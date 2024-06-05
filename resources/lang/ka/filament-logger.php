@@ -11,6 +11,7 @@ return [
     'nav.group' => 'პარამეტრები',
     'nav.log.label' => 'საქმიანობის ჟურნალი',
     'nav.log.icon' => 'heroicon-o-clipboard-document-list',
+    'nav.sort' => null,
     'resource.label.log' => 'საქმიანობის ჟურნალი',
     'resource.label.logs' => 'საქმიანობის ჟურნალი',
     'resource.label.user' => 'მომხმარებელი',

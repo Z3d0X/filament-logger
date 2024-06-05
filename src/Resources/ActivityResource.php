@@ -331,4 +331,9 @@ class ActivityResource extends Resource
     {
         return __('filament-logger::filament-logger.nav.log.icon');
     }
+
+    public static function getNavigationSort(): ?int
+    {
+        return __('filament-logger::filament-logger.nav.sort');
+    }
 }
