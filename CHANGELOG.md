@@ -2,6 +2,20 @@
 
 All notable changes to `filament-logger` will be documented in this file.
 
+## v0.7.2 - 2024-06-09
+
+### What's Changed
+
+* Refactor: remove extended EventServiceProvider by @Z3d0X in https://github.com/Z3d0X/filament-logger/pull/99
+* Bump dependabot/fetch-metadata from 2.0.0 to 2.1.0 by @dependabot in https://github.com/Z3d0X/filament-logger/pull/102
+* Add timezone to created_at row by @emildayan in https://github.com/Z3d0X/filament-logger/pull/110
+
+### New Contributors
+
+* @emildayan made their first contribution in https://github.com/Z3d0X/filament-logger/pull/110
+
+**Full Changelog**: https://github.com/Z3d0X/filament-logger/compare/v0.7.1...v0.7.2
+
 ## v0.7.1 - 2024-04-07
 
 ### What's Changed
