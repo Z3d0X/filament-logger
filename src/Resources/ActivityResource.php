@@ -153,7 +153,7 @@ class ActivityResource extends Resource
 
                 TextColumn::make('created_at')
                     ->label(__('filament-logger::filament-logger.resource.label.logged_at'))
-                    ->dateTime(config('filament-logger.datetime_format', 'd/m/Y H:i:s'))
+                    ->dateTime(config('filament-logger.datetime_format', 'd/m/Y H:i:s'), config('app.timezone'))
                     ->sortable(),
             ])
             ->defaultSort('created_at', 'desc')
