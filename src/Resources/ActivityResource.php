@@ -334,7 +334,13 @@ class ActivityResource extends Resource
 
 	public static function isScopedToTenant(): bool
     {
-		return config('filament-logger.resources.scoped_to_tenant', true);
+		return config('filament-logger.scoped_to_tenant', true);
     }
+
+	public static function getNavigationSort(): ?int
+	{
+		return config('filament-logger.navigation_sort', null);
+	}
+
 	
 }
