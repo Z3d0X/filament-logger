@@ -10,6 +10,7 @@ return [
         'log_name' => 'Resource',
         'logger' => \Z3d0X\FilamentLogger\Loggers\ResourceLogger::class,
         'color' => 'success',
+		'scoped_to_tenant' => true,
         'exclude' => [
             //App\Filament\Resources\UserResource::class,
         ],
