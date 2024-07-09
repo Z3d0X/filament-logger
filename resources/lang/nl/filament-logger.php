@@ -10,7 +10,6 @@ return [
 
     'nav.group' => 'Instellingen',
     'nav.log.label' => 'Activiteitenlog',
-    'nav.log.icon' => 'heroicon-o-clipboard-document-list',
     'resource.label.log' => 'Activiteiten log',
     'resource.label.logs' => 'Activiteiten logs',
     'resource.label.user' => 'Gebruiker',
