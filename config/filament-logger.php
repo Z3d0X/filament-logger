@@ -13,6 +13,8 @@ return [
         'exclude' => [
             //App\Filament\Resources\UserResource::class,
         ],
+        'cluster' => null,
+        'navigation_group' =>'Settings',
     ],
 
     'access' => [

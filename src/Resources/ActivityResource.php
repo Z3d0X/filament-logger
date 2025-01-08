@@ -31,6 +31,12 @@ class ActivityResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-clipboard-list';
 
+
+    public static function getCluster(): ?string
+    {
+        return config('filament-logger.resources.cluster');
+    }
+
     public static function form(Form $form): Form
     {
         return $form
@@ -319,7 +325,7 @@ class ActivityResource extends Resource
 
     public static function getNavigationGroup(): ?string
     {
-        return __('filament-logger::filament-logger.nav.group');
+        return __(config('filament-logger.resources.navigation_group','Settings'));
     }
 
     public static function getNavigationLabel(): string
