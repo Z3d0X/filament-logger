@@ -2,6 +2,25 @@
 
 All notable changes to `filament-logger` will be documented in this file.
 
+## v0.7.3 - 2025-01-08
+
+### What's Changed
+
+* Slovak translation by @hamrak in https://github.com/Z3d0X/filament-logger/pull/106
+* Bump dependabot/fetch-metadata from 2.1.0 to 2.2.0 by @dependabot in https://github.com/Z3d0X/filament-logger/pull/118
+* Czech translation by @robertjunek in https://github.com/Z3d0X/filament-logger/pull/125
+* Adding resource cluster and navigation from config file by @abdosaeedelhassan in https://github.com/Z3d0X/filament-logger/pull/123
+* Ability to control the ActivityResource navigation sort and if scoped to tenant by @silviugd in https://github.com/Z3d0X/filament-logger/pull/117
+
+### New Contributors
+
+* @hamrak made their first contribution in https://github.com/Z3d0X/filament-logger/pull/106
+* @robertjunek made their first contribution in https://github.com/Z3d0X/filament-logger/pull/125
+* @abdosaeedelhassan made their first contribution in https://github.com/Z3d0X/filament-logger/pull/123
+* @silviugd made their first contribution in https://github.com/Z3d0X/filament-logger/pull/117
+
+**Full Changelog**: https://github.com/Z3d0X/filament-logger/compare/v0.7.2...v0.7.3
+
 ## v0.7.2 - 2024-06-09
 
 ### What's Changed
