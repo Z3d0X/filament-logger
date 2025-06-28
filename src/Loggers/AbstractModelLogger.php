@@ -29,7 +29,7 @@ abstract class AbstractModelLogger
     }
 
 
-    protected function activityLogger(string $logName = null): ActivityLogger
+    protected function activityLogger(?string $logName = null): ActivityLogger
     {
         $defaultLogName = $this->getLogName();
 
