@@ -1,5 +1,6 @@
 > [!WARNING]
-> This package is no longer maintained
+> This package is no longer maintained.  
+> If you’re interested in taking over maintenance, feel free to fork the repository.
 
 # Activity logger for filament
 
