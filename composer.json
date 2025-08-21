@@ -1,12 +1,12 @@
 {
-    "name": "z3d0x/filament-logger",
+    "name": "abdiwaahid/filament-logger",
     "description": "Activity logger for filament",
     "keywords": [
-        "Z3d0X",
+        "abdiwaahid",
         "laravel",
         "filament-logger"
     ],
-    "homepage": "https://github.com/z3d0x/filament-logger",
+    "homepage": "https://github.com/abdiwaahid/filament-logger",
     "license": "MIT",
     "authors": [
         {
@@ -36,13 +36,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Z3d0X\\FilamentLogger\\": "src",
-            "Z3d0X\\FilamentLogger\\Database\\Factories\\": "database/factories"
+            "Abdiwaahid\\FilamentLogger\\": "src",
+            "Abdiwaahid\\FilamentLogger\\Database\\Factories\\": "database/factories"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Z3d0X\\FilamentLogger\\Tests\\": "tests"
+            "Abdiwaahid\\FilamentLogger\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -60,10 +60,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Z3d0X\\FilamentLogger\\FilamentLoggerServiceProvider"
+                "Abdiwaahid\\FilamentLogger\\FilamentLoggerServiceProvider"
             ],
             "aliases": {
-                "FilamentLogger": "Z3d0X\\FilamentLogger\\Facades\\FilamentLogger"
+                "FilamentLogger": "Abdiwaahid\\FilamentLogger\\Facades\\FilamentLogger"
             }
         }
     },
