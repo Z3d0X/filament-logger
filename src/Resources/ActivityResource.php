@@ -328,6 +328,11 @@ class ActivityResource extends Resource
         return __(config('filament-logger.resources.navigation_group','Settings'));
     }
 
+    public static function getNavigationGroup(): ?string
+    {
+        return __('filament-logger::filament-logger.nav.group');
+    }
+
     public static function getNavigationLabel(): string
     {
         return __('filament-logger::filament-logger.nav.log.label');
